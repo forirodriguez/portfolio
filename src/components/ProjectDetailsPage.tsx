@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
 import ProjectsDetailsPageDropDown from "@/components/ProjectsDetailsPageDropDown";
 import GoBackButton from "./GoBackButton";
 

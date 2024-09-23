@@ -4,7 +4,6 @@ import {
   Dumbbell,
   Coffee,
   Code,
-  ArrowLeft,
   Briefcase,
   GraduationCap,
   Lightbulb,

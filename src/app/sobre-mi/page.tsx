@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import { Briefcase, GraduationCap, Code, Globe, ArrowLeft } from "lucide-react";
-import Link from "next/link";
+import { Briefcase, GraduationCap, Code, Globe } from "lucide-react";
+
 import GoBackButton from "@/components/GoBackButton";
 
 export const metadata = {

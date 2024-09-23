@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { ArrowLeft, Home, HomeIcon } from "lucide-react";
+import { ArrowLeft, HomeIcon } from "lucide-react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 
