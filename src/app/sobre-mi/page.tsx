@@ -49,7 +49,7 @@ const SobreMi = () => {
           </div>
           <div className="hidden sm:block relative aspect-square rounded-full overflow-hidden">
             <Image
-              src="/images/profilePic.jpg"
+              src="/images/profilePic.jpeg"
               alt="Alfonso Rodríguez"
               layout="fill"
               objectFit="cover"

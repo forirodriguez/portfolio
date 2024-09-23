@@ -58,7 +58,7 @@ export default function HomePage() {
               className="lg:col-span-1 bg-teal text-cream overflow-hidden relative rounded-3xl group cursor-pointer"
             >
               <Image
-                src="/images/profilePic.jpg"
+                src="/images/portfolioPic.jpeg"
                 alt="Alfonso Rodríguez"
                 fill
                 style={{ objectFit: "cover" }}
