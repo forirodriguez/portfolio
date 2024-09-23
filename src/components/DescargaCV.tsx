@@ -6,7 +6,7 @@ import React from "react";
 export default function BotonDescarga() {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/CV-Rodriguez,Alfonso.pdf";
+    link.href = "/images/CV-Rodriguez,Alfonso.pdf";
     link.download = "CV-Rodriguez,Alfonso.pdf";
     document.body.appendChild(link);
     link.click();

@@ -17,8 +17,8 @@ export const metadata = {
     description:
       "Descubre cómo transformo ideas en experiencias digitales user-centric. Especialista en Frontend, UX/UI y soluciones web innovadoras.",
     type: "website",
-    url: "https://www.alfonsorodriguez.dev", // Asegúrate de reemplazar esto con tu URL real
-    image: "/path-to-your-og-image.jpg", // Reemplaza con la ruta a tu imagen OG
+    url: "https://portfolio-alfonsorodriguez-20.vercel.app/",
+    image: "/images/portfolio.jpg", // Reemplaza con la ruta a tu imagen OG
   },
 };
 

@@ -23,8 +23,8 @@ export const metadata = {
     description:
       "Conoce cómo fusiono mi experiencia en negocios, gastronomía y tecnología para crear soluciones digitales únicas. Un vistazo a mi journey personal y profesional.",
     type: "website",
-    url: "https://www.alfonsorodriguez.dev/bio", // Asegúrate de que esta sea la URL correcta de tu página Bio
-    image: "/images/alfonso-rodriguez-bio.jpg", // Reemplaza con la ruta a una imagen representativa de tu Bio
+    url: "https://portfolio-alfonsorodriguez-20.vercel.app/.dev/bio",
+    image: "/images/portfolio.jpg",
   },
 };
 

@@ -31,13 +31,13 @@ export async function generateMetadata({
     authors: [
       {
         name: "Alfonso Rodriguez",
-        url: "https://www.alfonsorodriguez.dev",
+        url: "https://portfolio-alfonsorodriguez-20.vercel.app/",
       },
     ],
     openGraph: {
       title: `Alfonso Rodriguez | ${project.title}`, // Título optimizado para redes sociales
       description: project.shortDescription,
-      url: `https://www.alfonsorodriguez.dev/${project.id}`, // URL canónica
+      url: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`, // URL canónica
       images: [
         {
           url: project.imageSrc, // Imagen del proyecto para redes sociales
@@ -56,7 +56,7 @@ export async function generateMetadata({
     },
     robots: "index, follow", // Permitir indexación
     alternates: {
-      canonical: `https://www.alfonsorodriguez.dev/${project.id}`, // URL canónica correcta
+      canonical: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`, // URL canónica correcta
     },
   };
 }

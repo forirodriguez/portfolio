@@ -81,7 +81,7 @@ export const projectsData = [
       "SEO Optimization",
     ],
     githubLink: "https://github.com/forirodriguez",
-    liveLink: "https://www.alfonsorodriguez.dev",
+    liveLink: "https://portfolio-alfonsorodriguez-20.vercel.app/",
     type: "project",
   },
   /* {

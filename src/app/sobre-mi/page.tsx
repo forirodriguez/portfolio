@@ -16,8 +16,8 @@ export const metadata = {
     description:
       "Explora el perfil de Alfonso Rodriguez: desde su experiencia en desarrollo frontend hasta su background en UX/UI y negocios. Un desarrollador bilingüe creando soluciones digitales innovadoras desde Uruguay para el mundo.",
     type: "profile",
-    url: "https://www.alfonsorodriguez.dev/sobre-mi", // Asegúrate de reemplazar esto con tu URL real
-    image: "/images/alfonso-rodriguez-profile.jpg", // Reemplaza con la ruta a tu imagen de perfil
+    url: "https://portfolio-alfonsorodriguez-20.vercel.app//sobre-mi",
+    image: "/images/portfolio.jpg",
   },
 };
 
