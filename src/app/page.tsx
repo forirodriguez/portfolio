@@ -18,7 +18,7 @@ export const metadata = {
       "Descubre cómo transformo ideas en experiencias digitales user-centric. Especialista en Frontend, UX/UI y soluciones web innovadoras.",
     type: "website",
     url: "https://portfolio-alfonsorodriguez-20.vercel.app/",
-    image: "/images/portfolio.jpg",
+    image: "/images/logoPortfolio.png",
   },
 };
 
@@ -94,7 +94,7 @@ export default function HomePage() {
                 transformo ideas en interfaces atractivas y funcionales. Desde
                 Uruguay, innovo en UX/UI para usuarios globales.
               </p>
-              <div className="absolute bottom-4 right-4 flex items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20">
+              <div className="absolute bottom-4 right-4 flex items-center z-20">
                 <span className="text-gold font-bold mr-2">Info</span>
                 <ArrowUpRight size={24} className="text-gold" />
               </div>
