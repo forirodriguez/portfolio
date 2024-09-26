@@ -15,8 +15,8 @@ export async function generateMetadata({
 
   if (!project) {
     return {
-      title: "Projecto no encontrado",
-      description: "El projecto que estás buscando no existe.",
+      title: "Alfonso Rodriguez | Página no encontrada",
+      description: "La página que buscabas no existe.",
       robots: "noindex, nofollow",
     };
   }
