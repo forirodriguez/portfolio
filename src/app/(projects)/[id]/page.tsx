@@ -1,24 +1,23 @@
 import ProjectDetailsPage from "@/components/ProjectDetailsPage";
 import { projectsData } from "@/app/ProjectDetails";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 interface ProjectPageProps {
   params: { id: string };
 }
 
-// Función para generar metadata de forma dinámica
 export async function generateMetadata({
   params,
 }: ProjectPageProps): Promise<Metadata> {
   const { id } = params;
-
   const project = projectsData.find((project) => project.id === id);
 
   if (!project) {
     return {
-      title: "Project not found",
-      description: "The project you are looking for does not exist.",
-      robots: "noindex, nofollow", // No indexar si el proyecto no existe
+      title: "Projecto no encontrado",
+      description: "El projecto que estás buscando no existe.",
+      robots: "noindex, nofollow",
     };
   }
 
@@ -35,12 +34,12 @@ export async function generateMetadata({
       },
     ],
     openGraph: {
-      title: `Alfonso Rodriguez | ${project.title}`, // Título optimizado para redes sociales
+      title: `Alfonso Rodriguez | ${project.title}`,
       description: project.shortDescription,
-      url: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`, // URL canónica
+      url: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`,
       images: [
         {
-          url: project.imageSrc, // Imagen del proyecto para redes sociales
+          url: project.imageSrc,
           width: 800,
           height: 600,
           alt: project.title,
@@ -49,30 +48,25 @@ export async function generateMetadata({
       siteName: "Alfonso Rodriguez Portfolio",
     },
     twitter: {
-      card: "summary_large_image", // Tarjeta de Twitter con imagen grande
+      card: "summary_large_image",
       title: `Alfonso Rodriguez | ${project.title}`,
       description: project.shortDescription,
-      images: [project.imageSrc], // Imagen para Twitter
+      images: [project.imageSrc],
     },
-    robots: "index, follow", // Permitir indexación
+    robots: "index, follow",
     alternates: {
-      canonical: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`, // URL canónica correcta
+      canonical: `https://portfolio-alfonsorodriguez-20.vercel.app/${project.id}`,
     },
   };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default function ProjectPage({ params }: ProjectPageProps) {
   const { id } = params;
-
   const project = projectsData.find((project) => project.id === id);
 
   if (!project) {
-    return <p>Project not found</p>;
+    notFound();
   }
 
-  return (
-    <>
-      <ProjectDetailsPage project={project} />
-    </>
-  );
+  return <ProjectDetailsPage project={project} />;
 }
