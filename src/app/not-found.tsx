@@ -12,7 +12,7 @@ export default function Custom404() {
         </p>
         <Link
           href="/"
-          className="inline-flex items-center bg-gold text-charcoal px-6 py-3 rounded-full font-bold hover:bg-cream hover:text-teal transition-colors"
+          className="inline-flex items-center bg-gold text-charcoal px-6 py-3 rounded-full font-bold hover:bg-teal hover:text-cream transition-colors"
         >
           <ArrowLeft className="mr-2" size={20} />
           Volver al inicio
