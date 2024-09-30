@@ -6,6 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import BlurFade from "@/components/ui/blur-fade";
 import BoxReveal from "@/components/ui/box-reveal";
+import WordRotate from "@/components/ui/word-rotate";
 
 export const metadata = {
   title: "Alfonso Rodriguez | Frontend Developer & UX/UI Specialist",
@@ -60,9 +61,12 @@ export default function HomePage() {
                 <BlurFade delay={0.25} inView>
                   <h2 className="text-4xl  sm:text-5xl font-semibold leading-tight mb-4 relative z-0">
                     Transformando
-                    <br />
-                    <span className="font-light italic text-gold">Ideas</span>
-                    <br />
+                    <span className="font-light italic text-gold">
+                      <WordRotate
+                        duration={4000}
+                        words={["Ideas", "Propuestas", "Proyectos"]}
+                      />
+                    </span>
                     en Desarrollos{" "}
                     <span className="font-light italic text-gold">
                       User-Centric
