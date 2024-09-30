@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import BoxReveal from "./ui/box-reveal";
+import BlurFade from "./ui/blur-fade";
 
 interface Project {
   name: string;
@@ -36,15 +38,18 @@ export const ProjectAccordionItem = ({
         }`}
         onClick={() => toggleProject(index)}
       >
-        <span
-          className={`text-lg font-bold ${
-            isOpen ? "border-b-2 border-cream/50 text-gold" : ""
-          }`}
-        >
-          {item.name}
-        </span>
+        <BoxReveal boxColor={"#EFEEE5"} duration={0.5}>
+          <span
+            className={`text-lg font-bold ${
+              isOpen ? "border-b-2 border-cream/50 text-gold" : ""
+            }`}
+          >
+            {item.name}
+          </span>
+        </BoxReveal>
         <span>{isOpen ? "-" : "+"}</span>
       </button>
+
       {isOpen && (
         <div className="mb-4 sm:mb-0 mt-4 space-y-4">
           <p className="text-sm text-cream">{item.technologies}</p>
@@ -57,14 +62,18 @@ export const ProjectAccordionItem = ({
             </span>
           </p>
 
-          <div className="hidden sm:block relative aspect-video h-3/2 rounded-lg overflow-hidden mt-4">
-            <Image
-              src={item.image}
-              alt={item.name}
-              layout="fill"
-              objectFit="contain"
-            />
-          </div>
+          <BlurFade delay={0.25} inView>
+            <div>
+              <div className="hidden sm:block relative aspect-video h-3/2 rounded-lg overflow-hidden mt-4">
+                <Image
+                  src={item.image}
+                  alt={item.name}
+                  layout="fill"
+                  objectFit="contain"
+                />
+              </div>
+            </div>
+          </BlurFade>
         </div>
       )}
     </div>

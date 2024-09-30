@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Briefcase, GraduationCap, Code, Globe } from "lucide-react";
 
 import GoBackButton from "@/components/GoBackButton";
+import BlurFade from "@/components/ui/blur-fade";
 
 export const metadata = {
   title: "Alfonso Rodriguez | Full Stack Developer y Especialista UX/UI",
@@ -117,7 +118,9 @@ const SobreMi = () => {
                   key={index}
                   className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
                 >
-                  {skill}
+                  <BlurFade delay={0.25} inView>
+                    {skill}
+                  </BlurFade>
                 </div>
               ))}
             </div>
@@ -133,7 +136,9 @@ const SobreMi = () => {
                   key={index}
                   className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
                 >
-                  {skill}
+                  <BlurFade delay={0.25} inView>
+                    {skill}
+                  </BlurFade>
                 </div>
               ))}
             </div>
@@ -154,7 +159,9 @@ const SobreMi = () => {
                   key={index}
                   className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
                 >
-                  {skill}
+                  <BlurFade delay={0.25} inView>
+                    {skill}
+                  </BlurFade>
                 </div>
               ))}
             </div>
@@ -170,7 +177,9 @@ const SobreMi = () => {
                   key={index}
                   className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
                 >
-                  {skill}
+                  <BlurFade delay={0.25} inView>
+                    {skill}
+                  </BlurFade>
                 </div>
               ))}
             </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
 import ProjectsDetailsPageDropDown from "@/components/ProjectsDetailsPageDropDown";
 import GoBackButton from "./GoBackButton";
+import BoxReveal from "./ui/box-reveal";
 
 interface ProjectDetails {
   id: string;
@@ -29,7 +30,9 @@ export default function ProjectDetailsPage({
         <ProjectsDetailsPageDropDown currentProjectId={project.id} />
       </div>
       <main className="max-w-4xl mx-auto">
-        <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+        <BoxReveal boxColor={"#EFEEE5"} duration={0.5}>
+          <h1 className="text-5xl font-bold mb-4">{project.title}</h1>
+        </BoxReveal>
         <div className="flex flex-col sm:flex-row justify-between items-center mb-8">
           <p className="text-xl text-charcoal ">{project.shortDescription}</p>
           <div className="mt-4 sm:mt-0 flex justify-center space-x-6">
@@ -73,9 +76,11 @@ export default function ProjectDetailsPage({
             <p className="mb-4">{project.fullDescription}</p>
           </div>
           <div>
-            <h2 className="text-2xl font-semibold mb-4">
-              Tecnologías Utilizadas
-            </h2>
+            <BoxReveal boxColor={"#EFEEE5"} duration={0.5}>
+              <h2 className="text-2xl font-semibold mb-4">
+                Tecnologías Utilizadas
+              </h2>
+            </BoxReveal>
             <ul className="list-disc list-inside space-y-2 text-teal">
               {project.technologies.map((tech, index) => (
                 <li key={index}>{tech}</li>

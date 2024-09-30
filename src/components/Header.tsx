@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import { MessageCircleCode, UserRound, LucideIcon } from "lucide-react";
 import ProjectsDropdown from "./ProjectsDropdown";
+import BlurFade from "./ui/blur-fade";
 
 interface NavItem {
   text: string;
@@ -59,18 +60,20 @@ const NavItem = ({ item }: NavItemProps) => {
 
 const Header = () => {
   return (
-    <header className="bg-teal p-4 rounded-lg flex justify-between items-center mb-10">
-      <Logo isMobile={false} className="hidden sm:block" />
-      <Logo isMobile={true} className="sm:hidden" />
-      <nav>
-        <ul className="flex space-x-2 text-sm">
-          <ProjectsDropdown />
-          {NAV_ITEMS.map((item) => (
-            <NavItem key={item.text} item={item} />
-          ))}
-        </ul>
-      </nav>
-    </header>
+    <BlurFade delay={0.25} inView>
+      <header className="bg-teal p-4 rounded-lg flex justify-between items-center mb-10">
+        <Logo isMobile={false} className="hidden sm:block" />
+        <Logo isMobile={true} className="sm:hidden" />
+        <nav>
+          <ul className="flex space-x-2 text-sm">
+            <ProjectsDropdown />
+            {NAV_ITEMS.map((item) => (
+              <NavItem key={item.text} item={item} />
+            ))}
+          </ul>
+        </nav>
+      </header>
+    </BlurFade>
   );
 };
 
