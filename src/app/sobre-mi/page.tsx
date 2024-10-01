@@ -1,9 +1,17 @@
 import React from "react";
 import Image from "next/image";
-import { Briefcase, GraduationCap, Code, Globe } from "lucide-react";
+import {
+  Briefcase,
+  GraduationCap,
+  Code,
+  Globe,
+  ArrowUpRight,
+} from "lucide-react";
 
 import GoBackButton from "@/components/GoBackButton";
 import BlurFade from "@/components/ui/blur-fade";
+import BoxReveal from "@/components/ui/box-reveal";
+import Link from "next/link";
 
 export const metadata = {
   title: "Alfonso Rodriguez | Full Stack Developer y Especialista UX/UI",
@@ -70,6 +78,7 @@ const SobreMi = () => {
               period: "Mayo 2024 - Actualmente",
               description:
                 "Co-desarrollé una aplicación para cálculo de impuestos y gestión fiscal usando Next.js y MongoDB.",
+              link: "/digitax",
             },
             {
               company: "iParkings",
@@ -77,6 +86,7 @@ const SobreMi = () => {
               period: "Noviembre 2023 - Actualmente",
               description:
                 "Optimicé la UX/UI en sistemas de auto-cobro y gestión de parkings, integrando JavaScript y PHP con MySQL.",
+              link: "/iparkings",
             },
             {
               company: "TengoKarga",
@@ -84,6 +94,7 @@ const SobreMi = () => {
               period: "Noviembre 2021 - Diciembre 2023",
               description:
                 "Desarrollé features en React, mantuve el backend y elaboré planes de testing y QA.",
+              link: "/tengokarga",
             },
           ].map((job, index) => (
             <div key={index} className="mb-6 bg-teal text-cream p-6 rounded-lg">
@@ -91,6 +102,12 @@ const SobreMi = () => {
               <p className="text-gold">{job.role}</p>
               <p className="text-sm mb-2">{job.period}</p>
               <p>{job.description}</p>
+              <Link className="text-gold" href={job.link}>
+                <div className="flex justify-start mt-4">
+                  Ver proyecto
+                  <ArrowUpRight className="text-gold ml-1" size={24} />
+                </div>
+              </Link>
             </div>
           ))}
         </section>
@@ -114,14 +131,11 @@ const SobreMi = () => {
                 "Tailwind",
                 "Redux",
               ].map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
-                >
-                  <BlurFade delay={0.25} inView>
+                <BlurFade delay={0.25} inView key={index}>
+                  <div className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold">
                     {skill}
-                  </BlurFade>
-                </div>
+                  </div>
+                </BlurFade>
               ))}
             </div>
           </div>
@@ -132,14 +146,11 @@ const SobreMi = () => {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {["Node.js", "MongoDB", "MySQL"].map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
-                >
-                  <BlurFade delay={0.25} inView>
+                <BlurFade delay={0.25} inView key={index}>
+                  <div className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold">
                     {skill}
-                  </BlurFade>
-                </div>
+                  </div>
+                </BlurFade>
               ))}
             </div>
           </div>
@@ -155,14 +166,11 @@ const SobreMi = () => {
                 "Human Centered Design",
                 "Design Thinking",
               ].map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
-                >
-                  <BlurFade delay={0.25} inView>
+                <BlurFade delay={0.25} inView key={index}>
+                  <div className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold">
                     {skill}
-                  </BlurFade>
-                </div>
+                  </div>
+                </BlurFade>
               ))}
             </div>
           </div>
@@ -173,14 +181,11 @@ const SobreMi = () => {
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               {["Git"].map((skill, index) => (
-                <div
-                  key={index}
-                  className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
-                >
-                  <BlurFade delay={0.25} inView>
+                <BlurFade delay={0.25} inView key={index}>
+                  <div className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold">
                     {skill}
-                  </BlurFade>
-                </div>
+                  </div>
+                </BlurFade>
               ))}
             </div>
           </div>
@@ -225,13 +230,20 @@ const SobreMi = () => {
           <div className="grid grid-cols-3 gap-4">
             {[
               { language: "Español", level: "Nativo" },
-              { language: "Inglés", level: "Bilingüe" },
+              { language: "Inglés", level: "C2" },
               { language: "Portugués", level: "Básico" },
             ].map((lang, index) => (
-              <div key={index} className="bg-teal text-cream p-4 rounded-lg">
-                <h3 className="font-bold">{lang.language}</h3>
-                <p>{lang.level}</p>
-              </div>
+              <BoxReveal
+                boxColor={"#EFEEE5"}
+                duration={0.5}
+                width="100%"
+                key={index}
+              >
+                <div className="bg-teal text-cream p-4 rounded-lg">
+                  <h3 className="font-bold">{lang.language}</h3>
+                  <p>{lang.level}</p>
+                </div>
+              </BoxReveal>
             ))}
           </div>
         </section>
