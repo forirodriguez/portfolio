@@ -18,13 +18,13 @@ export default function HomeView({ locale }: { locale: Locale }) {
   return (
     <div
       lang={t.htmlLang}
-      className="bg-cream p-6 font-sans text-cream min-h-screen flex flex-col"
+      className="home-screen bg-cream p-6 font-sans text-cream min-h-screen flex flex-col"
     >
       <Header locale={locale} altHref={altHref} />
 
-      <main className="flex-grow grid grid-cols-1 lg:grid-cols-6 gap-8">
-        <div className="lg:col-span-4 flex flex-col h-full">
-          <div className="flex-[60%] grid grid-cols-1 lg:grid-cols-5 gap-8">
+      <main className="flex-grow min-h-0 grid grid-cols-1 lg:grid-cols-6 gap-8">
+        <div className="lg:col-span-4 flex flex-col h-full min-h-0">
+          <div className="flex-1 min-h-0 grid grid-cols-1 lg:grid-cols-5 gap-8">
             <Reveal
               delay={60}
               className="lg:col-span-4 bg-teal text-cream p-8 rounded-3xl flex flex-col justify-end relative overflow-hidden"
@@ -73,7 +73,7 @@ export default function HomeView({ locale }: { locale: Locale }) {
             </Reveal>
           </div>
 
-          <div className="flex-[40%] grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+          <div className="shrink-0 grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
             <Reveal delay={220} className="flex">
               <Link
                 href={href(locale, aboutPath)}
@@ -107,10 +107,10 @@ export default function HomeView({ locale }: { locale: Locale }) {
           </div>
         </div>
 
-        <div className="space-y-8 lg:col-span-2 flex flex-col">
+        <div className="space-y-8 lg:col-span-2 flex flex-col min-h-0">
           <Reveal
             delay={200}
-            className="bg-teal text-cream p-6 rounded-3xl flex-grow"
+            className="bg-teal text-cream p-6 rounded-3xl flex-grow min-h-0"
           >
             <ProjectsAccordion
               locale={locale}

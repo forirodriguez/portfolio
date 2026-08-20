@@ -164,3 +164,15 @@ body {
     display: none;
   }
 }
+
+/* --- Home a una pantalla ---------------------------------------------------
+   En desktop la home entra completa sin scroll. El guard de min-height evita
+   que en una ventana baja el contenido quede cortado: por debajo de 680px de
+   alto la página vuelve a ser una página normal con scroll.                  */
+
+@media (min-width: 1024px) and (min-height: 680px) {
+  .home-screen {
+    height: 100dvh;
+    overflow: hidden;
+  }
+}
