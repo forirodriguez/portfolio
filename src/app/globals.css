@@ -176,3 +176,28 @@ body {
     overflow: hidden;
   }
 }
+
+/* --- Thumbnail del acordeón ------------------------------------------------
+   Cuando la home esta fijada a una pantalla (mismo rango que .home-screen), el
+   thumbnail es lo unico que obliga al panel de proyectos a scrollear adentro.
+   Por encima de 980px de alto entra sin problema y se muestra.                */
+
+/* Todo el display del thumbnail vive aca, no repartido con utilidades de
+   Tailwind: las responsive de Tailwind se emiten despues de este archivo y le
+   ganaban por orden de fuente. */
+
+.accordion-thumb {
+  display: none;
+}
+
+@media (min-width: 640px) {
+  .accordion-thumb {
+    display: block;
+  }
+}
+
+@media (min-width: 1024px) and (min-height: 680px) and (max-height: 979px) {
+  .accordion-thumb {
+    display: none;
+  }
+}

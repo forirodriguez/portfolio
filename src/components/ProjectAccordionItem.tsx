@@ -63,7 +63,7 @@ export default function ProjectAccordionItem({
           </p>
 
           {project.imageSrc && (
-            <div className="hidden sm:block relative aspect-video rounded-lg overflow-hidden bg-cream/10">
+            <div className="accordion-thumb relative aspect-video max-h-60 rounded-lg overflow-hidden bg-cream/10">
               <Image
                 src={project.imageSrc}
                 alt={project.title}
