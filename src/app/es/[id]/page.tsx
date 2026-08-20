@@ -8,13 +8,13 @@ interface ProjectPageProps {
 }
 
 export function generateStaticParams() {
-  return getContent("en").projects.map((project) => ({ id: project.id }));
+  return getContent("es").projects.map((project) => ({ id: project.id }));
 }
 
 export const dynamicParams = false;
 
 export function generateMetadata({ params }: ProjectPageProps): Metadata {
-  const project = getContent("en").projects.find((p) => p.id === params.id);
+  const project = getContent("es").projects.find((p) => p.id === params.id);
 
   if (!project) {
     return { title: "Alfonso Rodriguez", robots: { index: false } };
@@ -28,20 +28,20 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
     )}`,
     authors: [{ name: "Alfonso Rodriguez", url: SITE_URL }],
     alternates: {
-      canonical: `/en/${project.id}`,
+      canonical: `/es/${project.id}`,
       languages: {
-        "es-UY": `/${project.id}`,
-        en: `/en/${project.id}`,
+        "es-UY": `/es/${project.id}`,
+        en: `/${project.id}`,
         "x-default": `/${project.id}`,
       },
     },
     openGraph: {
       title: `${project.title} | Alfonso Rodriguez`,
       description: project.shortDescription,
-      url: `/en/${project.id}`,
+      url: `/es/${project.id}`,
       siteName: "Alfonso Rodriguez",
       type: "article",
-      locale: "en_US",
+      locale: "es_UY",
       images: project.imageSrc
         ? [{ url: project.imageSrc, alt: project.title }]
         : undefined,
@@ -55,10 +55,10 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
   };
 }
 
-export default function ProjectPageEn({ params }: ProjectPageProps) {
-  const project = getContent("en").projects.find((p) => p.id === params.id);
+export default function ProjectPageEs({ params }: ProjectPageProps) {
+  const project = getContent("es").projects.find((p) => p.id === params.id);
 
   if (!project) notFound();
 
-  return <ProjectDetailsPage project={project} locale="en" />;
+  return <ProjectDetailsPage project={project} locale="es" />;
 }

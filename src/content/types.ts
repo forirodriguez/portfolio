@@ -2,8 +2,8 @@ export type Locale = "es" | "en";
 
 export const LOCALES: Locale[] = ["es", "en"];
 
-/** Prefijo de ruta por idioma. El español vive en la raíz. */
-export const localePrefix: Record<Locale, string> = { es: "", en: "/en" };
+/** Prefijo de ruta por idioma. El ingles es el default y vive en la raíz. */
+export const localePrefix: Record<Locale, string> = { es: "/es", en: "" };
 
 export interface CaseSection {
   heading: string;

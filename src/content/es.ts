@@ -413,7 +413,7 @@ export const es: Content = {
         "SEO",
       ],
       githubLink: "https://github.com/forirodriguez/portfolio",
-      liveLink: "https://portfolio-alfonsorodriguez-20.vercel.app/",
+      liveLink: "https://portfolio-alfonsorodriguez-20.vercel.app/es",
     },
   ],
   meta: {

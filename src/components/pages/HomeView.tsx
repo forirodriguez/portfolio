@@ -12,7 +12,7 @@ import { GITHUB_URL, LINKEDIN_URL, MAILTO_URL } from "@/lib/links";
 
 export default function HomeView({ locale }: { locale: Locale }) {
   const t = getContent(locale);
-  const altHref = locale === "es" ? "/en" : "/";
+  const altHref = locale === "es" ? "/" : "/es";
   const aboutPath = locale === "es" ? "/sobre-mi" : "/about";
 
   return (

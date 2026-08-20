@@ -12,14 +12,14 @@ interface ProjectPageProps {
  * runtime, asi que no hay nada que pueda devolver un 500 en produccion.
  */
 export function generateStaticParams() {
-  return getContent("es").projects.map((project) => ({ id: project.id }));
+  return getContent("en").projects.map((project) => ({ id: project.id }));
 }
 
 /** Cualquier id que no este en la lista de arriba es un 404, no un 500. */
 export const dynamicParams = false;
 
 export function generateMetadata({ params }: ProjectPageProps): Metadata {
-  const project = getContent("es").projects.find((p) => p.id === params.id);
+  const project = getContent("en").projects.find((p) => p.id === params.id);
 
   if (!project) {
     return { title: "Alfonso Rodriguez", robots: { index: false } };
@@ -35,8 +35,8 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
     alternates: {
       canonical: `/${project.id}`,
       languages: {
-        "es-UY": `/${project.id}`,
-        en: `/en/${project.id}`,
+        "es-UY": `/es/${project.id}`,
+        en: `/${project.id}`,
         "x-default": `/${project.id}`,
       },
     },
@@ -46,7 +46,7 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
       url: `/${project.id}`,
       siteName: "Alfonso Rodriguez",
       type: "article",
-      locale: "es_UY",
+      locale: "en_US",
       images: project.imageSrc
         ? [{ url: project.imageSrc, alt: project.title }]
         : undefined,
@@ -61,9 +61,9 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
 }
 
 export default function ProjectPage({ params }: ProjectPageProps) {
-  const project = getContent("es").projects.find((p) => p.id === params.id);
+  const project = getContent("en").projects.find((p) => p.id === params.id);
 
   if (!project) notFound();
 
-  return <ProjectDetailsPage project={project} locale="es" />;
+  return <ProjectDetailsPage project={project} locale="en" />;
 }

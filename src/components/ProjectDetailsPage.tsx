@@ -20,7 +20,10 @@ export default function ProjectDetailsPage({
   const t = getContent(locale);
 
   return (
-    <div className="bg-cream min-h-screen p-6 font-sans text-charcoal">
+    <div
+      lang={t.htmlLang}
+      className="bg-cream min-h-screen p-6 font-sans text-charcoal"
+    >
       <div className="max-w-4xl mx-auto">
         <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
           <GoBackButton

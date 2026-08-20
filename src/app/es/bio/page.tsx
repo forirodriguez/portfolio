@@ -3,12 +3,12 @@ import { getContent } from "@/content";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  ...getContent("en").meta.bio,
-  locale: "en",
-  esPath: "/bio",
-  enPath: "/en/bio",
+  ...getContent("es").meta.bio,
+  locale: "es",
+  esPath: "/es/bio",
+  enPath: "/bio",
 });
 
-export default function BioPageEn() {
-  return <BioView locale="en" />;
+export default function BioPageEs() {
+  return <BioView locale="es" />;
 }

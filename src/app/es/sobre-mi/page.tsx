@@ -5,10 +5,10 @@ import { buildMetadata } from "@/lib/metadata";
 export const metadata = buildMetadata({
   ...getContent("es").meta.about,
   locale: "es",
-  esPath: "/sobre-mi",
-  enPath: "/en/about",
+  esPath: "/es/sobre-mi",
+  enPath: "/about",
 });
 
-export default function AboutPage() {
+export default function AboutPageEs() {
   return <AboutView locale="es" />;
 }

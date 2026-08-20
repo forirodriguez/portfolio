@@ -43,7 +43,7 @@ export function buildMetadata({
       languages: {
         "es-UY": esPath,
         en: enPath,
-        "x-default": esPath,
+        "x-default": enPath,
       },
     },
     openGraph: {

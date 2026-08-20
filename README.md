@@ -2,7 +2,7 @@
 
 Portfolio personal, bilingüe (español / inglés), construido con Next.js App Router.
 
-**Live:** https://portfolio-alfonsorodriguez-20.vercel.app · [English](https://portfolio-alfonsorodriguez-20.vercel.app/en)
+**Live:** https://portfolio-alfonsorodriguez-20.vercel.app · [Español](https://portfolio-alfonsorodriguez-20.vercel.app/es)
 
 ---
 
@@ -65,14 +65,14 @@ npm run lint
 ```text
 src/
   app/
-    page.tsx                  # home (es)
-    sobre-mi/                 # about (es)
+    page.tsx                  # home (en, idioma por defecto)
+    about/                    # about (en)
     (projects)/
-      bio/                    # bio (es)
-      [id]/                   # detalle de proyecto (es), estático
-    en/
-      page.tsx                # home (en)
-      about/  bio/  [id]/     # equivalentes en inglés
+      bio/                    # bio (en)
+      [id]/                   # detalle de proyecto (en), estático
+    es/
+      page.tsx                # home (es)
+      sobre-mi/  bio/  [id]/  # equivalentes en español
     opengraph-image.tsx       # tarjeta 1200x630 para compartir el link
     not-found.tsx             # 404 bilingüe
   components/
@@ -107,7 +107,14 @@ caseStudy: { heading, body?, bullets? }[]         // secciones de texto largo
 
 ## i18n
 
-El español vive en la raíz (`/sobre-mi`) y el inglés bajo `/en` (`/en/about`).
-No hay middleware ni detección por header: son rutas estáticas y un switch en el
-header. Cada página declara `canonical` y `hreflang` vía `buildMetadata()`, y las
-vistas en inglés marcan `lang="en"` en su contenedor.
+El inglés es el idioma por defecto y vive en la raíz (`/about`); el español va
+bajo `/es` (`/es/sobre-mi`). No hay middleware ni detección por `Accept-Language`:
+son rutas estáticas y un switch en el header, así que cualquiera cae en inglés y
+cambia si quiere.
+
+Cada página declara `canonical` y `hreflang` vía `buildMetadata()`, con
+`x-default` apuntando al inglés, y cada vista marca su `lang` en el contenedor
+para que el idioma del contenido no dependa del `<html lang>` del layout.
+
+`next.config.mjs` mantiene redirects 308 desde las URLs del esquema anterior
+(`/en/*` y `/sobre-mi`).
