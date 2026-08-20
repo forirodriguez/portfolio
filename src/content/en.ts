@@ -52,7 +52,7 @@ export const en: Content = {
         role: "Full Stack Developer & Product",
         period: "March 2026 - Present",
         description:
-          "Mobile-first web app for doctors working across multiple institutions: it projects how much they'll get paid and when. In production, in closed beta, backed by my own 50-response research.",
+          "My own product. Mobile-first web app for doctors working across multiple institutions: it projects how much they'll get paid and when. I run it end to end: research, product and engineering. In production, in closed beta.",
         projectId: "medshift",
       },
       {
@@ -194,7 +194,7 @@ export const en: Content = {
       shortDescription:
         "A web app for doctors working across multiple institutions: how much they'll be paid, by whom, and on what date.",
       fullDescription:
-        "MedShift is a mobile-first web app for Uruguayan doctors who log on-call shifts and salaried jobs across several institutions at once. It projects what they've earned, what they're owed and when it lands. It's in production at medshift.uy, in closed beta. What follows is the full process: the research that came first, what the data changed, and what I ended up building.",
+        "MedShift is my own product, run end to end from research to deploy. It is a mobile-first web app for Uruguayan doctors who log on-call shifts and salaried jobs across several institutions at once. It projects what they've earned, what they're owed and when it lands. It's in production at medshift.uy, in closed beta. What follows is the full process: the research that came first, what the data changed, and what I ended up building.",
       imageSrc: "/images/medshift.png",
       technologies: [
         "React",
@@ -275,7 +275,7 @@ export const en: Content = {
         "Management platform for cannabis clubs in Uruguay.",
       fullDescription:
         "Weedly is a management platform for Uruguayan cannabis clubs, a sector with very specific operational and legal requirements. I had a cross-functional role: I owned the full-stack architecture and the business development at the same time, which in a product this regulated is what defines what can be built at all.",
-      // imageSrc: "/images/weedly.png", // TODO: agregar screenshot de Weedly
+      imageSrc: "/images/weedly.jpg",
       technologies: [
         "Next.js",
         "TypeScript",

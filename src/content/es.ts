@@ -52,7 +52,7 @@ export const es: Content = {
         role: "Full Stack Developer & Producto",
         period: "Marzo 2026 - Actualidad",
         description:
-          "Webapp mobile-first para médicos que trabajan en varias instituciones: proyecta cuánto van a cobrar y cuándo. En producción, en beta cerrada, con research propio de 50 respuestas detrás.",
+          "Producto propio. Webapp mobile-first para médicos que trabajan en varias instituciones: proyecta cuánto van a cobrar y cuándo. Lo llevo end-to-end: research, producto y desarrollo. En producción, en beta cerrada.",
         projectId: "medshift",
       },
       {
@@ -194,7 +194,7 @@ export const es: Content = {
       shortDescription:
         "Webapp para médicos que trabajan en varias instituciones: cuánto van a cobrar, de dónde y en qué fecha.",
       fullDescription:
-        "MedShift es una webapp mobile-first para médicos uruguayos que registran guardias y empleos en nómina en varias instituciones a la vez. Les proyecta cuánto generaron, cuánto van a cobrar y en qué fecha. Está en producción en medshift.uy, en beta cerrada. Lo que sigue es el proceso completo: la investigación previa, qué cambió por los datos y qué terminé construyendo.",
+        "MedShift es un producto propio: lo llevo end-to-end, del research al deploy. Es una webapp mobile-first para médicos uruguayos que registran guardias y empleos en nómina en varias instituciones a la vez. Les proyecta cuánto generaron, cuánto van a cobrar y en qué fecha. Está en producción en medshift.uy, en beta cerrada. Lo que sigue es el proceso completo: la investigación previa, qué cambió por los datos y qué terminé construyendo.",
       imageSrc: "/images/medshift.png",
       technologies: [
         "React",
@@ -275,7 +275,7 @@ export const es: Content = {
         "Plataforma de administración para clubes cannábicos en Uruguay.",
       fullDescription:
         "Weedly es una plataforma de gestión para clubes cannábicos uruguayos, un sector con requisitos operativos y legales muy específicos. Tuve un rol cruzado: llevé la arquitectura full-stack y al mismo tiempo el desarrollo de negocio, que en un producto tan regulado es la parte que define qué se puede construir.",
-      // imageSrc: "/images/weedly.png", // TODO: agregar screenshot de Weedly
+      imageSrc: "/images/weedly.jpg",
       technologies: [
         "Next.js",
         "TypeScript",
