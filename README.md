@@ -1,36 +1,113 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Portfolio — Alfonso Rodriguez
 
-## Getting Started
+Portfolio personal, bilingüe (español / inglés), construido con Next.js App Router.
 
-First, run the development server:
+**Live:** https://portfolio-alfonsorodriguez-20.vercel.app · [English](https://portfolio-alfonsorodriguez-20.vercel.app/en)
+
+---
+
+## Decisiones de diseño
+
+Tres cosas que definen cómo está armado:
+
+**1. Todo el contenido vive en datos, no en JSX.**
+`src/content/es.ts` y `src/content/en.ts` exportan el mismo tipo (`src/content/types.ts`).
+Las páginas son componentes finos que reciben un `locale` y leen de ahí. Agregar un
+proyecto o corregir una fecha es editar un objeto, no tocar markup — y el compilador
+avisa si un idioma se quedó atrás.
+
+**2. Las páginas son estáticas, sin excepción.**
+Las rutas de proyecto (`/[id]` y `/en/[id]`) usan `generateStaticParams` con
+`dynamicParams = false`. Se generan en build y se sirven desde el CDN: no hay
+función de servidor en runtime, así que no hay nada que pueda devolver un 500.
+Un id que no existe da 404, no error.
+
+**3. Las animaciones son CSS y no bloquean el contenido.**
+No hay librería de animación. El HTML se sirve con el contenido visible y las
+animaciones (`reveal`, `box-reveal`, `word-rotate` en `globals.css`) son un
+agregado. Si el JS no corre, o el usuario tiene `prefers-reduced-motion`, la
+página se lee igual.
+
+---
+
+## Stack
+
+| | |
+|---|---|
+| Framework | Next.js 14 (App Router) |
+| Lenguaje | TypeScript |
+| Estilos | Tailwind CSS |
+| Iconos | lucide-react |
+| Imagen OG | `next/og` (`ImageResponse`), generada en build |
+| Deploy | Vercel |
+
+---
+
+## Correr el proyecto
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run build   # build de producción
+npm start       # servir el build
+npm run lint
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Estructura
 
-To learn more about Next.js, take a look at the following resources:
+```text
+src/
+  app/
+    page.tsx                  # home (es)
+    sobre-mi/                 # about (es)
+    (projects)/
+      bio/                    # bio (es)
+      [id]/                   # detalle de proyecto (es), estático
+    en/
+      page.tsx                # home (en)
+      about/  bio/  [id]/     # equivalentes en inglés
+    opengraph-image.tsx       # tarjeta 1200x630 para compartir el link
+    not-found.tsx             # 404 bilingüe
+  components/
+    pages/                    # HomeView, AboutView, BioView (compartidas entre idiomas)
+    ui/                       # reveal, box-reveal, word-rotate (CSS)
+  content/
+    types.ts  es.ts  en.ts    # todo el texto del sitio
+  lib/
+    links.ts                  # contacto, redes, ruta del CV
+    metadata.ts               # canonical, hreflang, Open Graph
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Agregar un proyecto
 
-## Deploy on Vercel
+1. Sumar el objeto al array `projects` en `src/content/es.ts` **y** en `src/content/en.ts`
+   (mismo `id` en los dos).
+2. Poner la imagen en `public/images/` y referenciarla en `imageSrc`.
+3. Listo: la ruta, el metadata, el listado del home y el menú de proyectos salen solos.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Campos opcionales para un caso de estudio largo:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```ts
+highlights: string[]                              // bullets con resultado concreto
+caseStudy: { heading, body?, bullets? }[]         // secciones de texto largo
+```
+
+`type: "work"` lo manda a la pestaña Trabajos; `type: "project"` a Proyectos.
+
+---
+
+## i18n
+
+El español vive en la raíz (`/sobre-mi`) y el inglés bajo `/en` (`/en/about`).
+No hay middleware ni detección por header: son rutas estáticas y un switch en el
+header. Cada página declara `canonical` y `hreflang` vía `buildMetadata()`, y las
+vistas en inglés marcan `lang="en"` en su contenedor.

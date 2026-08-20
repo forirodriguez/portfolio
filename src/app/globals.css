@@ -87,3 +87,80 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+/* --- Reveals en CSS puro ---------------------------------------------------
+   El contenido se sirve visible en el HTML. La animacion es un agregado:
+   si el CSS no carga o el usuario pide menos movimiento, se lee igual.        */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+.reveal {
+  animation: reveal-up 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+}
+
+/* Barra que barre el contenido de izquierda a derecha al aparecer. */
+@keyframes box-sweep {
+  0% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+.box-reveal {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.box-reveal-bar {
+  position: absolute;
+  inset: 2px 0;
+  z-index: 20;
+  background: var(--box-color, #efeee5);
+  animation: box-sweep 0.55s cubic-bezier(0.7, 0, 0.3, 1) both;
+  animation-delay: var(--reveal-delay, 0ms);
+  pointer-events: none;
+}
+
+@keyframes word-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.35em);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.word-rotate {
+  display: inline-block;
+  animation: word-in 0.35s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .word-rotate {
+    animation: none;
+  }
+  .box-reveal-bar {
+    display: none;
+  }
+}

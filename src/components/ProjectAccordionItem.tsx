@@ -1,81 +1,80 @@
 import Image from "next/image";
 import Link from "next/link";
 import BoxReveal from "./ui/box-reveal";
-import BlurFade from "./ui/blur-fade";
-
-interface Project {
-  name: string;
-  description: string;
-  image: string;
-  technologies: string;
-  path: string;
-}
+import type { Locale, Project } from "@/content";
+import { href } from "@/content";
 
 interface ProjectAccordionItemProps {
-  item: Project;
+  project: Project;
   index: number;
   isOpen: boolean;
-  toggleProject: (index: number) => void;
-  totalItems: number;
+  onToggle: (index: number) => void;
+  locale: Locale;
+  viewMoreLabel: string;
 }
 
-export const ProjectAccordionItem = ({
-  item,
+export default function ProjectAccordionItem({
+  project,
   index,
   isOpen,
-  toggleProject,
-  totalItems,
-}: ProjectAccordionItemProps) => {
+  onToggle,
+  locale,
+  viewMoreLabel,
+}: ProjectAccordionItemProps) {
+  const panelId = `project-panel-${project.id}`;
+
   return (
-    <div
-      className={`border-b-4 border-cream/50 last:border-b-0  flex-grow transition-all duration-300 ease-in-out flex flex-col ${
-        isOpen ? "flex-grow" : `h-[${100 / totalItems}%]`
-      }`}
-    >
+    <div className="border-b-4 border-cream/50 last:border-b-0 flex flex-col">
       <button
-        className={`w-full text-left flex justify-between items-center ${
-          isOpen ? "py-4" : "flex-grow"
-        }`}
-        onClick={() => toggleProject(index)}
+        type="button"
+        aria-expanded={isOpen}
+        aria-controls={panelId}
+        className="w-full text-left flex justify-between items-center py-4 gap-4"
+        onClick={() => onToggle(index)}
       >
-        <BoxReveal boxColor={"#EFEEE5"} duration={0.5}>
+        <BoxReveal delay={index * 90}>
           <span
-            className={`text-lg font-bold ${
-              isOpen ? "border-b-2 border-cream/50 text-gold" : ""
-            }`}
+            className={`text-lg font-bold ${isOpen ? "text-gold" : ""}`}
           >
-            {item.name}
+            {project.title}
           </span>
         </BoxReveal>
-        <span>{isOpen ? "-" : "+"}</span>
+        <span aria-hidden="true" className="text-xl shrink-0">
+          {isOpen ? "−" : "+"}
+        </span>
       </button>
 
       {isOpen && (
-        <div className="mb-4 sm:mb-0 mt-4 space-y-4">
-          <p className="text-sm text-cream">{item.technologies}</p>
+        <div id={panelId} className="pb-4 space-y-3">
+          <p className="text-xs uppercase tracking-wide text-gold">
+            {project.period}
+          </p>
+          <p className="text-sm text-cream/80">
+            {project.technologies.slice(0, 5).join(" · ")}
+          </p>
           <p className="text-sm text-cream">
-            {item.description}
-            <span>
-              <Link className="text-gold ml-4" href={item.path}>
-                Ver más
-              </Link>
-            </span>
+            {project.shortDescription}{" "}
+            <Link
+              className="text-gold underline underline-offset-2"
+              href={href(locale, `/${project.id}`)}
+            >
+              {viewMoreLabel}
+            </Link>
           </p>
 
-          <BlurFade delay={0.25} inView>
-            <div>
-              <div className="hidden sm:block relative aspect-video h-3/2 rounded-lg overflow-hidden mt-4">
-                <Image
-                  src={item.image}
-                  alt={item.name}
-                  layout="fill"
-                  objectFit="contain"
-                />
-              </div>
+          {project.imageSrc && (
+            <div className="hidden sm:block relative aspect-video rounded-lg overflow-hidden bg-cream/10">
+              <Image
+                src={project.imageSrc}
+                alt={project.title}
+                fill
+                sizes="(max-width: 1024px) 100vw, 33vw"
+                className="object-contain"
+              />
             </div>
-          </BlurFade>
+          )}
         </div>
       )}
     </div>
   );
-};
+}

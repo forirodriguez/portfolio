@@ -1,20 +1,16 @@
-"use client";
-
 import { FileDown } from "lucide-react";
-import React from "react";
+import { CV_PATH } from "@/lib/links";
 
-export default function BotonDescarga() {
-  const handleDownload = () => {
-    window.open("/docs/CV-Rodriguez,Alfonso.pdf", "_blank");
-  };
-
+export default function DownloadCV({ label }: { label: string }) {
   return (
-    <button
-      onClick={handleDownload}
+    <a
+      href={CV_PATH}
+      target="_blank"
+      rel="noopener noreferrer"
       className="flex items-center hover:text-gold transition-colors"
     >
-      <FileDown size={24} className="mr-2" />
-      CV
-    </button>
+      <FileDown size={20} className="mr-2" />
+      {label}
+    </a>
   );
 }

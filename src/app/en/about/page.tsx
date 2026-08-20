@@ -3,12 +3,12 @@ import { getContent } from "@/content";
 import { buildMetadata } from "@/lib/metadata";
 
 export const metadata = buildMetadata({
-  ...getContent("es").meta.about,
-  locale: "es",
+  ...getContent("en").meta.about,
+  locale: "en",
   esPath: "/sobre-mi",
   enPath: "/en/about",
 });
 
-export default function AboutPage() {
-  return <AboutView locale="es" />;
+export default function AboutPageEn() {
+  return <AboutView locale="en" />;
 }

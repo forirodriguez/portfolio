@@ -1,120 +1,67 @@
 "use client";
 
-import React, { useState } from "react";
-import { ProjectAccordionItem } from "./ProjectAccordionItem";
+import { useState } from "react";
+import ProjectAccordionItem from "./ProjectAccordionItem";
+import type { Locale, Project } from "@/content";
 
-interface Project {
-  name: string;
-  description: string;
-  technologies: string;
-  image: string;
-  path: string;
+interface ProjectsAccordionProps {
+  locale: Locale;
+  projects: Project[];
+  tabWork: string;
+  tabProjects: string;
+  viewMoreLabel: string;
 }
 
-const projects: Project[] = [
-  {
-    name: "Digitax",
-    description:
-      "Aplicación para facilitar el cálculo de impuestos y la gestión fiscal para profesionales e independientes.",
-    technologies: "Next.js | React | MongoDB",
-    image: "/images/digitax.png",
-    path: "/digitax",
-  },
-  {
-    name: "Mi Portfolio",
-    description:
-      "Sitio web personal para mostrar proyectos y habilidades como desarrollador frontend.",
-    technologies: "Next.js | TypeScript | Tailwind CSS",
-    image: "/images/portfolio.jpg",
-    path: "/portfolio",
-  },
-  /*   {
-    name: "Ecommerce",
-    description:
-      "Plataforma de comercio electrónico con funcionalidades avanzadas de gestión de inventario y pagos.",
-    technologies: "React | Node.js | Express | MySQL",
-    image: "/images/ecommerce.jpg",
-    path: "ecommerce",
-  }, */
-];
+export default function ProjectsAccordion({
+  locale,
+  projects,
+  tabWork,
+  tabProjects,
+  viewMoreLabel,
+}: ProjectsAccordionProps) {
+  const [activeTab, setActiveTab] = useState<"work" | "project">("work");
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
 
-const workProjects: Project[] = [
-  {
-    name: "iParkings",
-    description:
-      "Diseño UX/UI y desarrollo full-stack para sistemas de auto-cobro, gestión de parkings y página web.",
-    technologies:
-      "JavaScript | HTML | CSS | PHP | MySQL | UX/UI Design | Responsive Design",
-    image: "/images/iparkings.jpg",
-    path: "iparkings",
-  },
-  {
-    name: "TengoKarga",
-    description:
-      "Desarrollo full stack para plataforma logística, implementando nuevas características y manteniendo servicios existentes.",
-    technologies: "React | Redux | Sagas | Node.js | Testing",
-    image: "/images/tengokarga.jpg",
-    path: "tengokarga",
-  },
-  {
-    name: "Timb Arquitectura",
-    description:
-      "Diseño y desarrollo de sitio web responsive para estudio de arquitectos, con personalizaciones específicas.",
-    technologies: "WordPress | CSS | Responsive Design",
-    image: "/images/timb1.jpg",
-    path: "timb-arquitectura",
-  },
-];
+  const currentList = projects.filter((p) => p.type === activeTab);
 
-export default function ProjectsAccordion() {
-  const [activeTab, setActiveTab] = useState<"projects" | "works">("works");
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  const toggleProject = (index: number) => {
-    setOpenIndex((prevIndex) => (prevIndex === index ? null : index));
+  const switchTab = (tab: "work" | "project") => {
+    setActiveTab(tab);
+    setOpenIndex(0);
   };
-
-  const currentList = activeTab === "projects" ? projects : workProjects;
 
   return (
     <div className="flex flex-col h-full">
-      <div className="flex justify-around  space-x-4 mb-4">
-        <button
-          className={`px-4 py-2 rounded-t-lg font-bold ${
-            activeTab === "works" ? "bg-gold text-charcoal" : "text-cream"
-          }`}
-          onClick={() => {
-            setActiveTab("works");
-            setOpenIndex(null);
-          }}
-        >
-          Trabajos
-        </button>
-        <button
-          className={`px-4 py-2 rounded-t-lg font-bold ${
-            activeTab === "projects" ? "bg-gold text-charcoal" : "text-cream"
-          }`}
-          onClick={() => {
-            setActiveTab("projects");
-            setOpenIndex(null);
-          }}
-        >
-          Proyectos
-        </button>
+      <div className="flex justify-around space-x-4 mb-2">
+        {(
+          [
+            ["work", tabWork],
+            ["project", tabProjects],
+          ] as const
+        ).map(([tab, label]) => (
+          <button
+            key={tab}
+            type="button"
+            className={`px-4 py-2 rounded-t-lg font-bold transition-colors ${
+              activeTab === tab ? "bg-gold text-charcoal" : "text-cream"
+            }`}
+            onClick={() => switchTab(tab)}
+          >
+            {label}
+          </button>
+        ))}
       </div>
       <div className="flex-grow overflow-y-auto">
-        <div className="flex flex-col h-full justify-between">
-          {currentList.map((item, index) => (
-            <ProjectAccordionItem
-              key={item.name}
-              item={item}
-              index={index}
-              isOpen={openIndex === index}
-              toggleProject={toggleProject}
-              totalItems={currentList.length}
-            />
-          ))}
-        </div>
+        {currentList.map((project, index) => (
+          <ProjectAccordionItem
+            key={project.id}
+            project={project}
+            index={index}
+            isOpen={openIndex === index}
+            onToggle={(i) => setOpenIndex((prev) => (prev === i ? null : i))}
+            locale={locale}
+            viewMoreLabel={viewMoreLabel}
+          />
+        ))}
       </div>
     </div>
   );
