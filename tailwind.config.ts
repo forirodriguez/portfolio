@@ -9,7 +9,8 @@ const config: Config = {
   ],
   theme: {
   	extend: {
-  		colors: {
+      fontFamily: { sans: ["var(--font-geist-sans)", "Arial", "sans-serif"] },
+      colors: {
   			cream: '#EFEEE5',
   			teal: '#274546',
   			charcoal: '#333333',

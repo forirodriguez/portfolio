@@ -5,9 +5,9 @@ export const es: Content = {
   htmlLang: "es",
   switchLabel: "EN",
   nav: {
-    projects: "PROYECTOS",
-    about: "SOBRE MI",
-    talk: "HABLEMOS",
+    projects: "Trabajos",
+    about: "Sobre mí",
+    talk: "Hablemos",
     cv: "CV",
     back: "Volver",
     home: "Inicio",
@@ -21,23 +21,26 @@ export const es: Content = {
     description: "Sobre el proyecto",
     role: "Rol",
     period: "Período",
+    skip: "Saltar al contenido",
   },
   home: {
-    heroPrefix: "Construyo",
-    rotatingWords: ["productos", "webapps", "MVPs"],
-    heroMiddle: "que la gente",
-    heroHighlight: "usa de verdad",
-    intro:
-      "Soy Alfonso, Full Stack Developer en Montevideo. Trabajo con Next.js, TypeScript y Postgres, y hago el research de producto que define qué se construye. Hoy estoy en MedShift, una webapp para médicos que ya está en producción con usuarios beta.",
-    contactSmall: "Hablamos?",
-    contactBig: "Contactame",
-    tabWork: "Trabajos",
-    tabProjects: "Proyectos",
+    eyebrow: "Producto · Tecnología · Montevideo, Uruguay",
+    heroTitle: "Definir qué construir.",
+    heroHighlight: "Entender cómo hacerlo.",
+    intro: "Soy Alfonso. Busco mi próximo rol como Product Owner. Combino investigación de usuarios, definición de MVP y priorización de producto con experiencia en desarrollo full stack y negocios.",
+    contactSmall: "¿Buscás un Product Owner con base técnica?",
+    contactBig: "Escribime",
+    contactIntro: "Busco un rol de Product Owner donde pueda trabajar cerca de usuarios y equipos de desarrollo. Si el perfil encaja con tu equipo, conversemos.",
+    selectedWork: "Trabajos seleccionados",
+    selectedIntro: "Dos casos: investigar qué construir y mejorar lo que ya se usa.",
+    moreWork: "Más experiencia",
+    aboutTitle: "Producto, negocio y criterio técnico.",
+    aboutIntro: "Vengo de Administración de Empresas y de trabajar en finanzas y operaciones con equipos de Estados Unidos e India. Hoy uso esa experiencia para investigar problemas, definir el alcance y desarrollar productos. Trabajo en español e inglés.",
   },
   about: {
     title: "Sobre Mí",
     paragraphs: [
-      "Soy Alfonso Rodríguez, Full Stack Developer con foco en construir y escalar productos SaaS. Vengo de Administración de Empresas, y esa mezcla es lo que uso todos los días: escribo el código, pero también hago las entrevistas de descubrimiento, defino el alcance del MVP y decido qué no se construye.",
+      "Soy Alfonso Rodríguez. Busco orientar mi próxima etapa a Product Owner, apoyado en mi experiencia desarrollando productos SaaS y mi formación en Administración de Empresas. He realizado investigación de usuarios, definido el alcance de MVPs y priorizado roadmaps, además de llevar esas decisiones al código.",
       "Mi stack es Next.js, TypeScript, Prisma y PostgreSQL, con base sólida en UX/UI y performance de frontend. Trabajo desde Montevideo, en español e inglés (C2), con equipos locales y remotos.",
     ],
     experienceTitle: "Experiencia Profesional",
@@ -52,7 +55,7 @@ export const es: Content = {
         role: "Full Stack Developer & Producto",
         period: "Marzo 2026 - Actualidad",
         description:
-          "Producto propio. Webapp mobile-first para médicos que trabajan en varias instituciones: proyecta cuánto van a cobrar y cuándo. Lo llevo end-to-end: research, producto y desarrollo. En producción, en beta cerrada.",
+          "Producto propio. Webapp mobile-first para médicos que trabajan en varias instituciones: proyecta cuánto van a cobrar y cuándo. Lo llevo end-to-end: research, producto y desarrollo. En producción, en beta cerrada con 3 médicos que lo están usando.",
         projectId: "medshift",
       },
       {
@@ -75,7 +78,7 @@ export const es: Content = {
         role: "Frontend Developer",
         period: "Noviembre 2023 - Diciembre 2024",
         description:
-          "Sistema de auto-cobro para estacionamientos privados en Uruguay, con más de 150.000 usuarios mensuales. Reduje el flujo de pago de 6-8 pasos a 4-6, con una caída del 40% en reclamos.",
+          "Rediseñé el auto-cobro para un estacionamiento que recibía 150.000 usuarios al mes. El flujo pasó de 6-8 a 4-6 pasos y los tickets de quejas registrados en Jira bajaron un 40%.",
         projectId: "iparkings",
       },
       {
@@ -163,15 +166,11 @@ export const es: Content = {
       },
       {
         heading: "MedShift, que es donde todo esto se junta",
-        body: "MedShift es una webapp para médicos uruguayos que trabajan en tres o cuatro instituciones a la vez y no tienen forma de saber cuánto van a cobrar ni cuándo. Antes de escribir el MVP hice una encuesta y junté 50 respuestas. Los datos me confirmaron el problema, me cambiaron el pitch y me tiraron abajo la hipótesis de precio que tenía en la cabeza. Está en producción, en beta cerrada.",
+        body: "MedShift es una webapp para médicos uruguayos que trabajan en tres o cuatro instituciones a la vez y no tienen forma de saber cuánto van a cobrar ni cuándo. Antes de escribir el MVP hice una encuesta y junté 50 respuestas. Los datos me confirmaron el problema, me cambiaron el pitch y me tiraron abajo la hipótesis de precio que tenía en la cabeza. Está en producción, en beta cerrada con 3 médicos que lo están usando.",
       },
       {
         heading: "Y en paralelo, IA",
         body: "Desde junio de 2026 trabajo como contractor independiente para GreenLight.ai en programas de entrenamiento y evaluación de modelos. Aplico rúbricas para generar anotaciones estructuradas y reviso el trabajo de otros contribuidores. Me promovieron a reviewer. Es un músculo distinto: leer con criterio, ser consistente y justificar por qué algo está bien o mal.",
-      },
-      {
-        heading: "Disciplina, o el gimnasio como analogía barata",
-        body: "Armar una rutina de gimnasio y sostenerla me enseñó más sobre consistencia que cualquier libro. La parte difícil nunca es el primer día, es el día 40 sin resultados visibles. Programar tiene el mismo problema y la misma solución: aparecer.",
       },
       {
         heading: "Liderar equipos antes de liderar código",
@@ -187,6 +186,11 @@ export const es: Content = {
   projects: [
     {
       id: "medshift",
+      featured: {
+        value: "50",
+        label: "Respuestas antes del MVP",
+        detail: "Una encuesta a médicos que cambió el enfoque, el precio y las prioridades del producto.",
+      },
       title: "MedShift",
       role: "Full Stack Developer & Producto",
       period: "Marzo 2026 - Actualidad",
@@ -194,8 +198,7 @@ export const es: Content = {
       shortDescription:
         "Webapp para médicos que trabajan en varias instituciones: cuánto van a cobrar, de dónde y en qué fecha.",
       fullDescription:
-        "MedShift es un producto propio: lo llevo end-to-end, del research al deploy. Es una webapp mobile-first para médicos uruguayos que registran guardias y empleos en nómina en varias instituciones a la vez. Les proyecta cuánto generaron, cuánto van a cobrar y en qué fecha. Está en producción en medshift.uy, en beta cerrada. Lo que sigue es el proceso completo: la investigación previa, qué cambió por los datos y qué terminé construyendo.",
-      imageSrc: "/images/medshift.png",
+        "Producto propio para médicos uruguayos que trabajan en varias instituciones. Llevo la investigación, el alcance del MVP y el desarrollo, desde el modelo de datos hasta el deploy.",
       technologies: [
         "React",
         "TypeScript",
@@ -210,58 +213,36 @@ export const es: Content = {
         "Vercel",
       ],
       highlights: [
-        "50 respuestas de encuesta antes de escribir el MVP; 64% resultó ser exactamente el perfil objetivo.",
-        "La feature más votada (58%) era la promesa central del producto: saber en tiempo real cuánto se va a cobrar y de dónde.",
-        "18 médicos se ofrecieron como testers, contra un target inicial de 10 a 15.",
-        "En producción con beta cerrada, telemetría minimizada y suites de tests unitarios, SQL y E2E mobile.",
+        "Producto propio: investigación, definición del MVP y desarrollo full stack.",
+        "Beta cerrada en producción, utilizada por 3 médicos; incluye proyección de cobros y sincronización con Google Calendar.",
       ],
       liveLink: "https://www.medshift.uy",
       caseStudy: [
         {
-          heading: "El problema",
-          body: "Un médico uruguayo típico trabaja en tres o más instituciones, mezcla guardias con empleos en nómina, y cada lugar paga con su propia tarifa, su propio criterio de complementos y su propia fecha. El resultado es que no sabe cuánto va a cobrar el mes que viene, ni de dónde, ni si lo que le depositaron está bien. No es un problema de agenda: es un problema de plata.",
+          heading: "El problema que elegí resolver",
+          body: "Los médicos que trabajan en varias instituciones combinan guardias y empleos en nómina, con tarifas y fechas de pago distintas. MedShift conecta ese trabajo con una proyección de cuánto van a cobrar, de dónde y cuándo.",
         },
         {
-          heading: "Lo que hice antes de escribir el MVP",
-          body: "Armé una encuesta y la distribuí entre médicos. Junté 50 respuestas entre mayo y junio de 2026. No fue para validar lo que ya quería hacer: fue para poder matar ideas barato.",
+          heading: "Tres decisiones que cambiaron con la investigación",
+          body: "Entre mayo y junio de 2026 reuní 50 respuestas de médicos. 32 trabajaban en tres o más lugares y hacían al menos cinco guardias al mes. Usé las respuestas para priorizar el MVP y revisar mis supuestos de precio.",
           bullets: [
-            "32 de 50 (64%) trabajan en 3 o más lugares y hacen 5 o más guardias por mes: la encuesta llegó al perfil correcto.",
-            "29 de 50 (58%) eligieron “mostrarme en tiempo real cuánto voy a cobrar y de dónde” como la única feature que más querían.",
-            "23 de 50 cobraron en el último año una diferencia de 10% o más respecto de lo que esperaban. Otros 7 nunca lo calcularon: no saben si les pagaron bien.",
-            "23 de 50 (46%) marcaron la parte contable (Caja, BPS, DGI) como su mayor estresor, por encima de saber cuánto van a cobrar.",
-            "33 de 50 ya organizan todo en Google Calendar. Solo 2 usan una app específica.",
-            "36 de 50 (72%) pagan un contador externo y aún así el tema les estresa.",
-            "18 se ofrecieron como testers de la beta, contra un target de 10 a 15.",
+            "Priorizar cobros sobre agenda. 29 de 50 eligieron saber cuánto iban a cobrar y de dónde como la función más importante. Solo 2 señalaron organizar guardias como su mayor estrés. Cambié la promesa central del producto.",
+            "Revisar el precio. La disposición a pagar declarada era menor que mi hipótesis. Ajusté el precio previsto y la expectativa de conversión, sin tomar la encuesta como prueba de ventas.",
+            "Integrar herramientas existentes. 33 de 50 ya usaban Google Calendar. Prioricé la sincronización bidireccional; para lo contable, elegí recordatorios de vencimientos antes que un módulo de cálculo tributario.",
           ],
         },
         {
-          heading: "Qué cambió por los datos",
-          body: "Esta es la parte que justifica haber hecho la encuesta. Cinco decisiones cambiaron:",
+          heading: "Cómo llevé esas decisiones al producto",
           bullets: [
-            "El pitch. Organizar guardias casi no estresa a nadie (2 de 50 lo marcaron como mayor estrés). Dejé de vender “organizá tus guardias” y pasé a vender “sabé cuánto vas a cobrar y cuándo”. El calendario es el medio de carga, no el valor.",
-            "El precio. Mi hipótesis de precio estaba muy por encima de la disposición a pagar declarada. La corregí y bajé también la meta de conversión post-trial, que era optimista. Prefiero enterarme por una encuesta que por un checkout vacío.",
-            "El orden del roadmap. Lo contable era el estresor número uno pero el módulo tributario completo estaba diferido por buenas razones. En vez de adelantarlo entero, construí un puente barato: calendario de vencimientos DGI/BPS/CJPPU con recordatorios por email, sin cálculo ni asesoramiento tributario.",
-            "La integración con Google Calendar. Como dos tercios ya viven ahí, la sync bidireccional dejó de ser un extra y pasó a ser la forma de bajar la fricción de migración.",
-            "Las alertas de solapamiento. Ya estaban construidas y solo 2 de 50 las valoraron. Se quedan como detalle: no invierto más ahí ni las uso en el pitch.",
+            "Guardias y empleos en nómina por institución, con tarifas históricas, complementos y fechas de cobro. La proyección se recalcula en la base de datos cuando cambia una guardia.",
+            "Cobros agrupados por mes, registro de lo efectivamente recibido y cálculo de diferencias respecto de lo esperado.",
+            "Sincronización con Google Calendar mediante OAuth y un calendario dedicado; recordatorios por email con reintentos e idempotencia.",
+            "Aislamiento de datos con Row Level Security y pruebas SQL, unitarias y E2E. Telemetría de errores sin PII y analytics sujetos a consentimiento.",
           ],
         },
         {
-          heading: "Qué construí",
-          bullets: [
-            "Proyección de cobros en tiempo real: el monto y la fecha de cobro se recalculan en la base ante cada alta o edición de guardia, no en el cliente.",
-            "Modelo multi-institución con Row Level Security y scope indirecto por institución, más una suite SQL que verifica el aislamiento entre usuarios.",
-            "Alta de guardia en 3 pasos, carga manual con snapshot histórico de tarifa, complementos (por hora, fijos, por paciente, multiplicador), recurrencia semanal y guardias largas.",
-            "Empleos en nómina con complementos recurrentes, ajustes puntuales y calendario de cobro propio.",
-            "Cobros agrupados por mes de pago con registro del monto real y cálculo de desviación: la respuesta directa al “no sé si me pagaron bien”.",
-            "Sync bidireccional con Google Calendar: OAuth con scope reducido, calendario dedicado, webhook inbound y sync outbound con eventos pendientes.",
-            "Recordatorios por email de cobros vencidos y vencimientos tributarios, con idempotencia, catch-up y reintentos.",
-            "Telemetría minimizada: errores sin PII y analytics recién después de que el usuario acepta, con retiro disponible desde el perfil.",
-            "Admin interno para operar la beta y dar soporte sin tocar la base a mano.",
-          ],
-        },
-        {
-          heading: "Dónde está hoy",
-          body: "En producción, en beta cerrada, con los voluntarios que salieron de la misma encuesta. Antes de ampliar la beta quedan la revisión legal de retención de datos, backups y el smoke test físico en mobile. El aprendizaje más caro fue barato: una encuesta de 50 respuestas me evitó construir el checkout equivocado.",
+          heading: "De la encuesta a la beta",
+          body: "A septiembre de 2026, 3 médicos usan la beta: 2 desde hace tres meses y el tercero desde hace una semana. La usan principalmente para comprobar cuánto deberían cobrar cada mes y recibir recordatorios de cobro. Ese uso coincide con el foco de producto elegido tras la encuesta. Los 18 voluntarios iniciales eran interés en participar, no usuarios activos.",
         },
       ],
     },
@@ -276,6 +257,7 @@ export const es: Content = {
       fullDescription:
         "Weedly es una plataforma de gestión para clubes cannábicos uruguayos, un sector con requisitos operativos y legales muy específicos. Tuve un rol cruzado: llevé la arquitectura full-stack y al mismo tiempo el desarrollo de negocio, que en un producto tan regulado es la parte que define qué se puede construir.",
       imageSrc: "/images/weedly.jpg",
+      imageCaption: "Presentación visual de Weedly.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -287,7 +269,7 @@ export const es: Content = {
       ],
       highlights: [
         "Diseñé e implementé la arquitectura full-stack en Next.js y TypeScript.",
-        "Server Actions y SSR para mantener consistencia en tiempo real sin castigar la performance.",
+        "Server Actions para las operaciones de datos y SSR para renderizar las páginas en el servidor.",
         "Definí el MVP y el roadmap priorizando por impacto real de negocio y de usuario.",
         "Cerré alianzas con clubes cannábicos y llevé las reuniones de descubrimiento que ajustaron el producto a los requisitos operativos y legales del sector.",
       ],
@@ -297,7 +279,7 @@ export const es: Content = {
           heading: "Lo que hice",
           bullets: [
             "Arquitectura full-stack completa: Next.js, TypeScript, Prisma y PostgreSQL.",
-            "Server Actions seguras y renderizado en servidor para consistencia en tiempo real.",
+            "Operaciones de datos con Server Actions y páginas renderizadas en el servidor.",
             "UI responsive pensada para uso administrativo diario, no para demo.",
             "Definición del MVP y del roadmap de producto.",
             "Alianzas con clubes, reuniones de descubrimiento y adaptación del producto a requisitos legales y operativos.",
@@ -309,15 +291,19 @@ export const es: Content = {
     },
     {
       id: "iparkings",
+      featured: {
+        value: "6–8 → 4–6",
+        label: "Pasos en el flujo de pago",
+        detail: "Rediseño del auto-cobro: menos decisiones antes de retirar el auto.",
+      },
       title: "iParkings",
       role: "Frontend Developer",
       period: "Noviembre 2023 - Diciembre 2024",
       type: "work",
       shortDescription:
-        "Sistema de auto-cobro para estacionamientos privados, con más de 150.000 usuarios mensuales.",
+        "Rediseño del auto-cobro: menos pasos para pagar y una reducción del 40% en tickets de quejas registrados en Jira.",
       fullDescription:
         "iParkings opera estacionamientos privados en Uruguay. Trabajé sobre el sistema de auto-cobro: la terminal donde el usuario paga antes de retirar el auto. Es un contexto exigente, porque el usuario está apurado, de pie, y si el flujo falla el reclamo lo recibe el personal del parking.",
-      imageSrc: "/images/iparkings.jpg",
       technologies: [
         "JavaScript",
         "HTML",
@@ -328,16 +314,20 @@ export const es: Content = {
         "Responsive Design",
       ],
       highlights: [
-        "Más de 150.000 usuarios mensuales sobre el sistema en el que trabajé.",
-        "Reduje el flujo de pago de 6-8 pasos a 4-6, con una caída del 40% en reclamos de usuarios.",
+        "El estacionamiento recibía 150.000 usuarios al mes: es el volumen del lugar, no usuarios medidos de la interfaz.",
+        "Reduje el flujo de pago de 6-8 a 4-6 pasos. Los tickets de quejas registrados en Jira bajaron un 40%.",
         "Construí el modo “Free Parking”, que sacó carga operativa del personal.",
         "Lideré el diseño UX/UI, el testing funcional y la documentación técnica de la plataforma.",
       ],
       liveLink: "https://pagoparking.com",
       caseStudy: [
         {
+          heading: "Confidencialidad",
+          body: "Las interfaces, capturas y documentación interna de este trabajo son confidenciales. Presento mi contribución y la forma de medir el resultado sin publicar esos materiales.",
+        },
+        {
           heading: "El detalle que más importó",
-          body: "Cada paso que sacaba del flujo era un punto menos donde alguien se trababa con el auto atrás esperando. La reducción de 6-8 pasos a 4-6 no fue un rediseño visual: fue sacar decisiones que el sistema podía tomar solo. El 40% de caída en reclamos es la métrica que lo confirma.",
+          body: "Cada paso que sacaba del flujo era un punto menos donde alguien se trababa con el auto atrás esperando. La reducción de 6-8 pasos a 4-6 no fue un rediseño visual: fue sacar decisiones que el sistema podía tomar solo. La reducción del 40% en quejas se midió a partir de los tickets registrados en Jira.",
         },
         {
           heading: "Trabajo con hardware",
@@ -356,6 +346,7 @@ export const es: Content = {
       fullDescription:
         "TengoKarga era una plataforma logística para conectar cargas con transportistas. Trabajé full stack durante dos años, sobre features de producto y sobre las herramientas que el equipo interno necesitaba para dar soporte. La plataforma ya no está online.",
       imageSrc: "/images/tengokarga.jpg",
+      imageCaption: "Imagen de archivo de TengoKarga; la plataforma dejó de operar.",
       technologies: [
         "React",
         "Redux",
@@ -390,6 +381,7 @@ export const es: Content = {
       fullDescription:
         "Sitio web para el estudio Timb Arquitectura. La necesidad era que el estudio pudiera cargar sus propias obras sin depender de nadie, así que la base fue WordPress, con personalizaciones de CSS para que no se notara la plantilla y el diseño acompañara la estética del estudio.",
       imageSrc: "/images/timb1.jpg",
+      imageCaption: "Sitio web de Timb Arquitectura.",
       technologies: ["WordPress", "CSS", "Responsive Design", "UX/UI Design"],
       liveLink: "https://www.timb.com.uy",
     },
@@ -402,8 +394,7 @@ export const es: Content = {
       shortDescription:
         "El sitio donde estás parado. Next.js, sin dependencias de animación, bilingüe.",
       fullDescription:
-        "Portfolio propio en Next.js con App Router. Las páginas de proyecto son estáticas y se generan en build, así que no hay función de servidor que pueda fallar en runtime. Las animaciones son CSS puro: el contenido está visible en el HTML y la animación es un agregado, no un requisito para leer la página. Disponible en español e inglés.",
-      imageSrc: "/images/portfolio.jpg",
+        "Portfolio propio en Next.js con App Router. Las páginas de proyecto son estáticas y se generan en build, sin generar el contenido de cada página en cada visita. Las animaciones son CSS puro: el contenido está visible en el HTML y la animación es un agregado, no un requisito para leer la página. Disponible en español e inglés.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -418,18 +409,18 @@ export const es: Content = {
   ],
   meta: {
     home: {
-      title: "Alfonso Rodriguez | Full Stack Developer",
+      title: "Alfonso Rodríguez | Producto y tecnología",
       description:
-        "Full Stack Developer en Montevideo. Next.js, TypeScript y PostgreSQL, con research de producto para definir qué se construye. Actualmente en MedShift.",
+        "Alfonso Rodríguez, perfil de producto con experiencia full stack y formación en negocios. Busco un rol de Product Owner. Casos de MedShift e iParkings.",
       keywords:
-        "Full Stack Developer, Next.js, TypeScript, React, PostgreSQL, Supabase, Producto, UX/UI, Uruguay, Montevideo",
+        "Product Owner, Producto, Discovery, MVP, Priorización, Full Stack, UX/UI, Uruguay, Montevideo",
     },
     about: {
       title: "Alfonso Rodriguez | Sobre mí",
       description:
-        "Experiencia, stack y formación de Alfonso Rodriguez: Full Stack Developer con background en negocios, trabajando en Montevideo con equipos locales y remotos.",
+        "Experiencia de Alfonso Rodríguez en investigación de usuarios, definición de MVP y desarrollo full stack. En búsqueda de un rol de Product Owner.",
       keywords:
-        "Alfonso Rodriguez, Full Stack Developer, experiencia, stack, Next.js, TypeScript, Uruguay",
+        "Alfonso Rodriguez, Product Owner, experiencia, producto, discovery, desarrollo, Uruguay",
     },
     bio: {
       title: "Alfonso Rodriguez | De los números al producto",

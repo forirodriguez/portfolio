@@ -1,6 +1,6 @@
 # Portfolio — Alfonso Rodriguez
 
-Portfolio personal, bilingüe (español / inglés), construido con Next.js App Router.
+Portfolio personal, bilingüe (español / inglés), orientado a oportunidades de Product Owner y construido con Next.js App Router.
 
 **Live:** https://portfolio-alfonsorodriguez-20.vercel.app · [Español](https://portfolio-alfonsorodriguez-20.vercel.app/es)
 
@@ -17,16 +17,15 @@ proyecto o corregir una fecha es editar un objeto, no tocar markup — y el comp
 avisa si un idioma se quedó atrás.
 
 **2. Las páginas son estáticas, sin excepción.**
-Las rutas de proyecto (`/[id]` y `/en/[id]`) usan `generateStaticParams` con
-`dynamicParams = false`. Se generan en build y se sirven desde el CDN: no hay
-función de servidor en runtime, así que no hay nada que pueda devolver un 500.
+Las rutas de proyecto (`/[id]` y `/es/[id]`) usan `generateStaticParams` con
+`dynamicParams = false`. Se generan en build y se sirven desde el CDN: las páginas no necesitan una función de servidor para generar su contenido en cada visita.
 Un id que no existe da 404, no error.
 
 **3. Las animaciones son CSS y no bloquean el contenido.**
-No hay librería de animación. El HTML se sirve con el contenido visible y las
-animaciones (`reveal`, `box-reveal`, `word-rotate` en `globals.css`) son un
-agregado. Si el JS no corre, o el usuario tiene `prefers-reduced-motion`, la
-página se lee igual.
+El titular es fijo y los proyectos son enlaces visibles en el HTML, sin pestañas
+ni acordeones. La entrada suave de algunas secciones usa CSS, sin ocultar el texto
+y respetando `prefers-reduced-motion`. El menú, el cambio de idioma y los casos
+se pueden recorrer sin JavaScript.
 
 ---
 
@@ -56,6 +55,7 @@ http://localhost:3000
 npm run build   # build de producción
 npm start       # servir el build
 npm run lint
+python3 scripts/check_site.py http://127.0.0.1:3000 # con el sitio corriendo
 ```
 
 ---
@@ -77,7 +77,7 @@ src/
     not-found.tsx             # 404 bilingüe
   components/
     pages/                    # HomeView, AboutView, BioView (compartidas entre idiomas)
-    ui/                       # reveal, box-reveal, word-rotate (CSS)
+    ui/                       # reveal (CSS, sin ocultar contenido)
   content/
     types.ts  es.ts  en.ts    # todo el texto del sitio
   lib/
@@ -101,7 +101,10 @@ highlights: string[]                              // bullets con resultado concr
 caseStudy: { heading, body?, bullets? }[]         // secciones de texto largo
 ```
 
-`type: "work"` lo manda a la pestaña Trabajos; `type: "project"` a Proyectos.
+`featured: { value, label, detail }` destaca un caso en la portada. Los demás
+trabajos se muestran como una lista visible; el portfolio propio conserva su
+ruta pero no ocupa una tarjeta en la portada. `imageCaption` describe la imagen
+sin asumir que es una captura del producto.
 
 ---
 
@@ -118,3 +121,13 @@ para que el idioma del contenido no dependa del `<html lang>` del layout.
 
 `next.config.mjs` mantiene redirects 308 desde las URLs del esquema anterior
 (`/en/*` y `/sobre-mi`).
+
+## CV
+
+Cada idioma enlaza a su PDF: `public/docs/CV-Alfonso-Rodriguez.pdf` (inglés) y
+`public/docs/CV-Alfonso-Rodriguez-ES.pdf` (español). Las versiones editables están
+en `documents/`. Actualizar ambos formatos cuando cambien los datos.
+
+Las métricas de septiembre de 2026 distinguen usuarios del estacionamiento,
+tickets de quejas en Jira y uso de la beta de MedShift. El caso de iParkings no
+incluye capturas ni documentación interna por confidencialidad.

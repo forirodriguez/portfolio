@@ -19,6 +19,8 @@ export interface Project {
   shortDescription: string;
   fullDescription: string;
   imageSrc?: string;
+  imageCaption?: string;
+  featured?: { value: string; label: string; detail: string };
   technologies: string[];
   /** Bullets con resultado concreto. Se muestran arriba de la descripción. */
   highlights?: string[];
@@ -76,17 +78,21 @@ export interface Content {
     description: string;
     role: string;
     period: string;
+    skip: string;
   };
   home: {
-    heroPrefix: string;
-    rotatingWords: string[];
-    heroMiddle: string;
+    eyebrow: string;
+    heroTitle: string;
     heroHighlight: string;
     intro: string;
     contactSmall: string;
     contactBig: string;
-    tabWork: string;
-    tabProjects: string;
+    contactIntro: string;
+    selectedWork: string;
+    selectedIntro: string;
+    moreWork: string;
+    aboutTitle: string;
+    aboutIntro: string;
   };
   about: {
     title: string;

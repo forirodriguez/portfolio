@@ -1,4 +1,5 @@
-import GoBackButton from "@/components/GoBackButton";
+import Header from "@/components/Header";
+import ContactFooter from "@/components/ContactFooter";
 import Reveal from "@/components/ui/reveal";
 import { getContent, type Locale } from "@/content";
 
@@ -6,13 +7,9 @@ export default function BioView({ locale }: { locale: Locale }) {
   const t = getContent(locale);
 
   return (
-    <div lang={t.htmlLang} className="bg-cream min-h-screen p-6">
-      <div className="max-w-3xl mx-auto">
-        <GoBackButton
-          locale={locale}
-          label={t.nav.back}
-          homeLabel={t.nav.home}
-        />
+    <div lang={t.htmlLang} className="site-shell">
+      <Header locale={locale} altHref={locale === "es" ? "/bio" : "/es/bio"} />
+      <main id="main" tabIndex={-1} className="max-w-3xl mx-auto pt-10 sm:pt-14">
 
         <h1 className="text-4xl sm:text-5xl font-bold text-teal mb-10">
           {t.bio.title}
@@ -41,7 +38,8 @@ export default function BioView({ locale }: { locale: Locale }) {
             </Reveal>
           ))}
         </div>
-      </div>
+      </main>
+      <ContactFooter locale={locale} />
     </div>
   );
 }

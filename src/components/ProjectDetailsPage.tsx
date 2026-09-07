@@ -1,180 +1,62 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Github, ExternalLink, Check } from "lucide-react";
+import { Github, ExternalLink, ArrowLeft } from "lucide-react";
+import Header from "./Header";
+import ContactFooter from "./ContactFooter";
 import ProjectsNav from "./ProjectsDetailsPageDropDown";
-import GoBackButton from "./GoBackButton";
-import BoxReveal from "./ui/box-reveal";
-import Reveal from "./ui/reveal";
-import { getContent, type Locale, type Project } from "@/content";
-import { WHATSAPP_URL, MAILTO_URL } from "@/lib/links";
+import { getContent, href, type Locale, type Project } from "@/content";
 
-interface ProjectDetailsPageProps {
-  project: Project;
-  locale: Locale;
-}
-
-export default function ProjectDetailsPage({
-  project,
-  locale,
-}: ProjectDetailsPageProps) {
+export default function ProjectDetailsPage({ project, locale }: { project: Project; locale: Locale }) {
   const t = getContent(locale);
-
   return (
-    <div
-      lang={t.htmlLang}
-      className="bg-cream min-h-screen p-6 font-sans text-charcoal"
-    >
-      <div className="max-w-4xl mx-auto">
-        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-          <GoBackButton
-            locale={locale}
-            label={t.nav.back}
-            homeLabel={t.nav.home}
-          />
-          <ProjectsNav
-            locale={locale}
-            projects={t.projects}
-            currentProjectId={project.id}
-          />
+    <div lang={t.htmlLang} className="site-shell">
+      <Header locale={locale} altHref={href(locale === "es" ? "en" : "es", `/${project.id}`)} />
+      <main id="main" tabIndex={-1} className="max-w-4xl mx-auto pt-8 sm:pt-12">
+        <Link href={`${href(locale)}#work`} className="inline-flex items-center gap-2 min-h-11 text-sm text-teal mb-6 hover:underline"><ArrowLeft size={18} aria-hidden="true" />{t.home.selectedWork}</Link>
+        <p className="eyebrow mb-3">{project.role} · {project.period}</p>
+        <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight">{project.title}</h1>
+        <p className="mt-5 text-xl sm:text-2xl leading-relaxed max-w-3xl">{project.shortDescription}</p>
+        <div className="flex flex-wrap gap-3 mt-6 mb-10">
+          {project.liveLink && <Link className="button-dark" href={project.liveLink} target="_blank" rel="noopener noreferrer">{t.nav.liveSite}<ExternalLink size={18} aria-hidden="true" /></Link>}
+          {project.githubLink && <Link className="button-outline" href={project.githubLink} target="_blank" rel="noopener noreferrer">{t.nav.repo}<Github size={18} aria-hidden="true" /></Link>}
         </div>
-
-        <main>
-          <BoxReveal>
-            <h1 className="text-4xl sm:text-5xl font-bold">{project.title}</h1>
-          </BoxReveal>
-
-          {(project.role || project.period) && (
-            <p className="mt-3 text-sm uppercase tracking-wide text-teal">
-              {[project.role, project.period].filter(Boolean).join(" · ")}
-            </p>
-          )}
-
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-4 mb-8">
-            <p className="text-xl max-w-xl">{project.shortDescription}</p>
-            <div className="flex gap-3 shrink-0">
-              {project.githubLink && (
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={project.githubLink}
-                  className="bg-teal text-cream px-4 py-2 rounded-full inline-flex items-center hover:bg-gold hover:text-charcoal transition-colors"
-                >
-                  <Github className="mr-2" size={18} />
-                  {t.nav.repo}
-                </Link>
-              )}
-              {project.liveLink && (
-                <Link
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href={project.liveLink}
-                  className="bg-teal text-cream px-4 py-2 rounded-full inline-flex items-center hover:bg-gold hover:text-charcoal transition-colors"
-                >
-                  <ExternalLink className="mr-2" size={18} />
-                  {t.nav.liveSite}
-                </Link>
-              )}
-            </div>
+        {project.featured && (
+          <div className="project-proof rounded-2xl mb-10">
+            <p className="eyebrow text-cream/75">{project.featured.label}</p>
+            <p className="proof-value">{project.featured.value}</p>
+            <p className="text-cream/80 leading-relaxed">{project.featured.detail}</p>
           </div>
-
-          {project.imageSrc && (
-            <Reveal className="mb-12">
-              <Image
-                src={project.imageSrc}
-                alt={`${project.title} — screenshot`}
-                width={1000}
-                height={500}
-                priority
-                className="rounded-lg shadow-lg w-full h-auto"
-              />
-            </Reveal>
-          )}
-
-          {project.highlights && project.highlights.length > 0 && (
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-              {project.highlights.map((item, index) => (
-                <Reveal
-                  as="li"
-                  key={item}
-                  delay={index * 70}
-                  className="bg-teal text-cream p-4 rounded-lg flex gap-3"
-                >
-                  <Check className="text-gold shrink-0 mt-1" size={18} />
-                  <span>{item}</span>
-                </Reveal>
-              ))}
-            </ul>
-          )}
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="md:col-span-2">
-              <h2 className="text-2xl font-semibold mb-4">
-                {t.nav.description}
-              </h2>
-              <p>{project.fullDescription}</p>
-            </div>
-            <div>
-              <h2 className="text-2xl font-semibold mb-4">{t.nav.stack}</h2>
-              <ul className="flex flex-wrap gap-2">
-                {project.technologies.map((tech) => (
-                  <li
-                    key={tech}
-                    className="bg-gold text-charcoal text-sm px-3 py-1 rounded-full font-medium"
-                  >
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-
-          {project.caseStudy?.map((section, index) => (
+        )}
+        <div className="grid md:grid-cols-3 gap-8 border-y border-teal/20 py-8 mb-10">
+          <div className="md:col-span-2"><h2 className="text-xl font-semibold mb-3">{t.nav.description}</h2><p className="leading-relaxed text-charcoal/80">{project.fullDescription}</p></div>
+          <div><h2 className="text-xl font-semibold mb-3">{t.nav.stack}</h2><ul className="flex flex-wrap gap-2">{project.technologies.map(tech => <li key={tech} className="border border-teal/20 text-teal rounded-full px-3 py-1 text-sm">{tech}</li>)}</ul></div>
+        </div>
+        {project.highlights && (
+          <ul className="grid sm:grid-cols-2 gap-4 mb-12">
+            {project.highlights.map(item => <li key={item} className="border-l-2 border-teal pl-4 leading-relaxed">{item}</li>)}
+          </ul>
+        )}
+        <div className="case-study">
+          {project.caseStudy?.map(section => (
             <section key={section.heading} className="mb-10">
-              <BoxReveal delay={index * 60}>
-                <h2 className="text-2xl font-semibold mb-4">
-                  {section.heading}
-                </h2>
-              </BoxReveal>
-              {section.body && <p className="mb-4">{section.body}</p>}
-              {section.bullets && (
-                <ul className="space-y-3">
-                  {section.bullets.map((bullet) => (
-                    <li key={bullet} className="flex gap-3">
-                      <span
-                        aria-hidden="true"
-                        className="text-gold font-bold shrink-0"
-                      >
-                        —
-                      </span>
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-              )}
+              <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-4">{section.heading}</h2>
+              {section.body && <p className="mb-5">{section.body}</p>}
+              {section.bullets && <ul className="list-disc pl-5 space-y-4 marker:text-teal">{section.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul>}
             </section>
           ))}
-
-          <aside className="bg-teal text-cream rounded-2xl p-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 mt-12">
-            <p className="text-lg">{t.home.contactSmall}</p>
-            <div className="flex gap-3">
-              <Link
-                href={MAILTO_URL}
-                className="bg-gold text-charcoal px-4 py-2 rounded-full font-bold"
-              >
-                {t.home.contactBig}
-              </Link>
-              <Link
-                href={WHATSAPP_URL[locale]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border border-cream/40 px-4 py-2 rounded-full"
-              >
-                {t.nav.talk}
-              </Link>
-            </div>
-          </aside>
-        </main>
-      </div>
+        </div>
+        {project.imageSrc && (
+          <figure className="my-10">
+            <Image src={project.imageSrc} alt={project.imageCaption || project.title} width={1000} height={500} sizes="(max-width: 960px) 100vw, 896px" className="rounded-xl w-full h-auto max-h-[420px] object-contain bg-teal/5" />
+            {project.imageCaption && <figcaption className="text-sm text-teal mt-3">{project.imageCaption}</figcaption>}
+          </figure>
+        )}
+        <div className="border-t border-teal/20 pt-6 mt-12 mb-10">
+          <h2 className="text-xl font-semibold mb-4">{t.home.moreWork}</h2>
+          <ProjectsNav locale={locale} projects={t.projects} currentProjectId={project.id} />
+        </div>
+      </main>
+      <ContactFooter locale={locale} />
     </div>
   );
 }

@@ -3,7 +3,10 @@ import type { Locale } from "@/content";
 export const EMAIL = "rodriguezalfonso20@gmail.com";
 export const GITHUB_URL = "https://github.com/forirodriguez";
 export const LINKEDIN_URL = "https://www.linkedin.com/in/m-alfonso-rodriguez/";
-export const CV_PATH = "/docs/CV-Alfonso-Rodriguez.pdf";
+export const CV_PATH: Record<Locale, string> = {
+  en: "/docs/CV-Alfonso-Rodriguez.pdf",
+  es: "/docs/CV-Alfonso-Rodriguez-ES.pdf",
+};
 
 const WHATSAPP_NUMBER = "59891633855";
 

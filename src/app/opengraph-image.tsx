@@ -1,6 +1,6 @@
 import { ImageResponse } from "next/og";
 
-export const alt = "Alfonso Rodriguez — Full Stack Developer";
+export const alt = "Alfonso Rodríguez — Product & Technology";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -26,10 +26,10 @@ export default function OpengraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 76, fontWeight: 700, lineHeight: 1.1 }}>
-            Full Stack Developer
+            Product · Technology
           </div>
           <div style={{ fontSize: 38, color: "#F2A541" }}>
-            Next.js · TypeScript · PostgreSQL · Producto
+            Discovery · Prioritization · Full Stack
           </div>
         </div>
         <div style={{ display: "flex", fontSize: 30, color: "#EFEEE5" }}>

@@ -17,11 +17,11 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Alfonso Rodriguez | Full Stack Developer",
+    default: "Alfonso Rodríguez | Product & Technology",
     template: "%s",
   },
   description:
-    "Full Stack Developer based in Montevideo. Next.js, TypeScript and PostgreSQL.",
+    "Product Owner candidate with full-stack development experience and a business background, based in Montevideo.",
 };
 
 export default function RootLayout({
@@ -30,7 +30,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
       </body>

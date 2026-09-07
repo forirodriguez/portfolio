@@ -1,27 +1,10 @@
 import Link from "next/link";
-import { Languages } from "lucide-react";
 
-interface LanguageSwitchProps {
-  /** Ruta equivalente de esta misma pagina en el otro idioma */
-  href: string;
-  label: string;
-  hrefLang: string;
-}
-
-export default function LanguageSwitch({
-  href,
-  label,
-  hrefLang,
-}: LanguageSwitchProps) {
+export default function LanguageSwitch({ href, label, hrefLang }: { href: string; label: string; hrefLang: string }) {
   return (
     <li>
-      <Link
-        href={href}
-        hrefLang={hrefLang}
-        className="flex items-center gap-1 hover:text-gold transition-colors p-2 rounded-md"
-      >
-        <Languages size={18} />
-        <span className="hidden sm:inline">{label}</span>
+      <Link href={href} hrefLang={hrefLang} lang={hrefLang} aria-label={hrefLang === "es" ? "Ver en español" : "Read in English"} className="nav-link font-semibold border border-teal/20 rounded-full">
+        {label}
       </Link>
     </li>
   );

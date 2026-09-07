@@ -5,9 +5,9 @@ export const en: Content = {
   htmlLang: "en",
   switchLabel: "ES",
   nav: {
-    projects: "PROJECTS",
-    about: "ABOUT",
-    talk: "LET'S TALK",
+    projects: "Work",
+    about: "About",
+    talk: "Let's talk",
     cv: "CV",
     back: "Back",
     home: "Home",
@@ -21,23 +21,26 @@ export const en: Content = {
     description: "About the project",
     role: "Role",
     period: "Period",
+    skip: "Skip to content",
   },
   home: {
-    heroPrefix: "I build",
-    rotatingWords: ["products", "web apps", "MVPs"],
-    heroMiddle: "people",
-    heroHighlight: "actually use",
-    intro:
-      "I'm Alfonso, a Full Stack Developer based in Montevideo. I work with Next.js, TypeScript and Postgres, and I run the product research that decides what gets built. Right now I'm building MedShift, a web app for doctors already in production with beta users.",
-    contactSmall: "Got a project?",
+    eyebrow: "Product · Technology · Montevideo, Uruguay",
+    heroTitle: "Decide what to build.",
+    heroHighlight: "Understand how to deliver it.",
+    intro: "I'm Alfonso, looking for my next role as a Product Owner. I combine user research, MVP definition and product prioritization with a background in full-stack development and business.",
+    contactSmall: "Hiring a Product Owner with a technical background?",
     contactBig: "Get in touch",
-    tabWork: "Work",
-    tabProjects: "Projects",
+    contactIntro: "I'm seeking a Product Owner role working closely with users and engineering teams. If my background fits your team, let's talk.",
+    selectedWork: "Selected work",
+    selectedIntro: "Two cases: finding what to build and improving what's already in use.",
+    moreWork: "More experience",
+    aboutTitle: "Product, business and technical judgment.",
+    aboutIntro: "My background is in Business Administration, finance and operations, working with teams in the United States and India. Today I use that experience to research problems, define scope and build products. I work in English and Spanish.",
   },
   about: {
     title: "About Me",
     paragraphs: [
-      "I'm Alfonso Rodríguez, a Full Stack Developer focused on building and scaling SaaS products. I came from a Business Administration background, and I use that mix every day: I write the code, but I also run the discovery interviews, define the MVP scope and decide what doesn't get built.",
+      "I'm Alfonso Rodríguez, targeting a Product Owner role with a background in building SaaS products and Business Administration. I've conducted user research, defined MVP scope and prioritized roadmaps, as well as implemented those decisions in code.",
       "My stack is Next.js, TypeScript, Prisma and PostgreSQL, on top of solid UX/UI and frontend performance fundamentals. I work from Montevideo, in Spanish and English (C2), with both local and remote teams.",
     ],
     experienceTitle: "Professional Experience",
@@ -52,7 +55,7 @@ export const en: Content = {
         role: "Full Stack Developer & Product",
         period: "March 2026 - Present",
         description:
-          "My own product. Mobile-first web app for doctors working across multiple institutions: it projects how much they'll get paid and when. I run it end to end: research, product and engineering. In production, in closed beta.",
+          "My own product. Mobile-first web app for doctors working across multiple institutions: it projects how much they'll get paid and when. I run it end to end: research, product and engineering. In production, in closed beta with 3 doctors currently using it.",
         projectId: "medshift",
       },
       {
@@ -75,7 +78,7 @@ export const en: Content = {
         role: "Frontend Developer",
         period: "November 2023 - December 2024",
         description:
-          "Self-payment system for private parking lots in Uruguay, serving over 150,000 monthly users. I cut the payment flow from 6-8 steps down to 4-6, driving a 40% drop in user complaints.",
+          "Redesigned self-payment for a parking facility receiving 150,000 users per month. The flow went from 6-8 to 4-6 steps, and complaint tickets recorded in Jira fell by 40%.",
         projectId: "iparkings",
       },
       {
@@ -163,15 +166,11 @@ export const en: Content = {
       },
       {
         heading: "MedShift, where all of it comes together",
-        body: "MedShift is a web app for Uruguayan doctors who work across three or four institutions at once and have no way of knowing how much they'll get paid or when. Before writing the MVP I ran a survey and collected 50 responses. The data confirmed the problem, changed my pitch, and killed the pricing assumption I had in my head. It's in production, in closed beta.",
+        body: "MedShift is a web app for Uruguayan doctors who work across three or four institutions at once and have no way of knowing how much they'll get paid or when. Before writing the MVP I ran a survey and collected 50 responses. The data confirmed the problem, changed my pitch, and killed the pricing assumption I had in my head. It's in production, in closed beta with 3 doctors currently using it.",
       },
       {
         heading: "And in parallel, AI",
         body: "Since June 2026 I've worked as an independent contractor for GreenLight.ai on AI training and evaluation programs. I apply rubrics to produce structured annotations and review other contributors' work. I was promoted to reviewer. It's a different muscle: reading with judgement, staying consistent, and justifying why something is right or wrong.",
-      },
-      {
-        heading: "Discipline, or the cheap gym analogy",
-        body: "Building a gym routine and sticking to it taught me more about consistency than any book. The hard part is never day one, it's day 40 with no visible results. Programming has the same problem and the same solution: show up.",
       },
       {
         heading: "Leading teams before leading code",
@@ -187,6 +186,11 @@ export const en: Content = {
   projects: [
     {
       id: "medshift",
+      featured: {
+        value: "50",
+        label: "Survey responses before the MVP",
+        detail: "Research with doctors that changed the product's positioning, pricing and priorities.",
+      },
       title: "MedShift",
       role: "Full Stack Developer & Product",
       period: "March 2026 - Present",
@@ -194,8 +198,7 @@ export const en: Content = {
       shortDescription:
         "A web app for doctors working across multiple institutions: how much they'll be paid, by whom, and on what date.",
       fullDescription:
-        "MedShift is my own product, run end to end from research to deploy. It is a mobile-first web app for Uruguayan doctors who log on-call shifts and salaried jobs across several institutions at once. It projects what they've earned, what they're owed and when it lands. It's in production at medshift.uy, in closed beta. What follows is the full process: the research that came first, what the data changed, and what I ended up building.",
-      imageSrc: "/images/medshift.png",
+        "My own product for Uruguayan doctors working across multiple institutions. I own research, MVP scope and development, from the data model to deployment.",
       technologies: [
         "React",
         "TypeScript",
@@ -210,58 +213,36 @@ export const en: Content = {
         "Vercel",
       ],
       highlights: [
-        "50 survey responses before writing the MVP; 64% turned out to be exactly the target profile.",
-        "The most requested feature (58%) was the product's core promise: knowing in real time how much you'll be paid and by whom.",
-        "18 doctors volunteered as testers, against an initial target of 10 to 15.",
-        "In production with closed beta, minimized telemetry, and unit, SQL and mobile E2E test suites.",
+        "My own product: research, MVP definition and full-stack development.",
+        "Closed beta in production, used by 3 doctors, with payment forecasts and Google Calendar sync.",
       ],
       liveLink: "https://www.medshift.uy",
       caseStudy: [
         {
-          heading: "The problem",
-          body: "A typical Uruguayan doctor works across three or more institutions, mixes on-call shifts with salaried positions, and every place pays with its own rate, its own rules for bonuses and its own payment date. The result is they don't know what they'll be paid next month, by whom, or whether what landed in their account is correct. It isn't a scheduling problem. It's a money problem.",
+          heading: "The problem I chose to solve",
+          body: "Doctors working across multiple institutions combine on-call shifts and salaried jobs with different rates and payment dates. MedShift connects that work to a forecast of how much they will receive, from whom and when.",
         },
         {
-          heading: "What I did before writing the MVP",
-          body: "I built a survey and distributed it among doctors. I collected 50 responses between May and June 2026. It wasn't there to validate what I already wanted to build: it was there so I could kill ideas cheaply.",
+          heading: "Three decisions the research changed",
+          body: "Between May and June 2026 I collected 50 responses from doctors. 32 worked across at least three institutions and did five or more shifts a month. I used the responses to prioritize the MVP and revisit my pricing assumptions.",
           bullets: [
-            "32 of 50 (64%) work in 3 or more places and do 5 or more shifts a month: the survey reached the right profile.",
-            "29 of 50 (58%) picked “show me in real time how much I'll be paid and by whom” as the single feature they wanted most.",
-            "23 of 50 were paid an amount that differed by 10% or more from what they expected in the last year. Another 7 had never checked: they don't know whether they were paid correctly.",
-            "23 of 50 (46%) flagged accounting and tax obligations as their single biggest stressor, above knowing what they'll be paid.",
-            "33 of 50 already organize everything in Google Calendar. Only 2 use a purpose-built app.",
-            "36 of 50 (72%) pay an external accountant and the topic still stresses them out.",
-            "18 volunteered as beta testers, against a target of 10 to 15.",
+            "Payments before scheduling. 29 of 50 chose knowing how much they would be paid and by whom as their most important feature. Only 2 named organizing shifts as their biggest stressor. I changed the core product promise.",
+            "Revisit pricing. Stated willingness to pay was below my initial assumption. I adjusted the planned price and conversion expectations, without treating survey answers as proof of sales.",
+            "Integrate existing tools. 33 of 50 already used Google Calendar. I prioritized two-way sync; for accounting needs, I chose deadline reminders before a tax calculation module.",
           ],
         },
         {
-          heading: "What the data changed",
-          body: "This is the part that justifies running the survey at all. Five decisions changed:",
+          heading: "How those decisions shaped the product",
           bullets: [
-            "The pitch. Organizing shifts barely stresses anyone (2 of 50 flagged it as their biggest stressor). I stopped selling “organize your shifts” and started selling “know what you'll be paid and when”. The calendar is the input method, not the value.",
-            "The price. My pricing hypothesis sat well above stated willingness to pay. I corrected it, and lowered a post-trial conversion target that was optimistic too. I'd rather find that out from a survey than from an empty checkout.",
-            "The roadmap order. Tax and accounting was the number one stressor, but the full tax module was deferred for good reasons. Instead of pulling the whole thing forward, I built a cheap bridge: a due-date calendar for the local tax and pension bodies with email reminders, no calculation and no tax advice.",
-            "The Google Calendar integration. Since two thirds already live there, two-way sync stopped being a nice-to-have and became the way to lower migration friction.",
-            "Overlap alerts. They were already built and only 2 of 50 valued them. They stay as a detail: no further investment, and they're out of the pitch.",
+            "Shifts and salaried jobs per institution, with historical rates, supplements and payment dates. Forecasts are recalculated in the database when a shift changes.",
+            "Payments grouped by month, with actual amounts received and differences against expectations.",
+            "Google Calendar sync through OAuth and a dedicated calendar; email reminders with retries and idempotency.",
+            "Data isolation through Row Level Security with SQL, unit and E2E tests. Error telemetry without PII and consent-based analytics.",
           ],
         },
         {
-          heading: "What I built",
-          bullets: [
-            "Real-time payment projection: amount and payment date are recalculated in the database on every shift insert or update, not in the client.",
-            "Multi-institution data model with Row Level Security and indirect scoping by institution, plus a SQL suite that verifies isolation between users.",
-            "3-step shift creation, manual entry with a historical rate snapshot, complements (hourly, fixed, per patient, multiplier), weekly recurrence and long shifts.",
-            "Salaried positions with recurring complements, one-off adjustments and their own payment calendar.",
-            "Payments grouped by payment month with real-amount logging and deviation calculation: the direct answer to “I don't know if they paid me right”.",
-            "Two-way Google Calendar sync: OAuth with a reduced scope, a dedicated calendar, an inbound webhook and outbound sync with pending events.",
-            "Email reminders for overdue payments and tax due dates, with idempotency, catch-up and retries.",
-            "Minimized telemetry: error tracking without PII, and analytics only after the user opts in, with opt-out available from their profile.",
-            "An internal admin surface to run the beta and support users without touching the database by hand.",
-          ],
-        },
-        {
-          heading: "Where it stands",
-          body: "In production, in closed beta, with volunteers who came out of that same survey. Before widening the beta there's a legal review of data retention, backups and a physical mobile smoke test left. The most expensive lesson was cheap: a 50-response survey saved me from building the wrong checkout.",
+          heading: "From survey to beta",
+          body: "As of September 2026, 3 doctors use the beta: 2 have used it for three months and the third joined a week ago. They mainly check how much they should be paid each month and use payment reminders. This usage aligns with the product focus chosen after the survey. The 18 initial volunteers represented interest in participating, not active users.",
         },
       ],
     },
@@ -276,6 +257,7 @@ export const en: Content = {
       fullDescription:
         "Weedly is a management platform for Uruguayan cannabis clubs, a sector with very specific operational and legal requirements. I had a cross-functional role: I owned the full-stack architecture and the business development at the same time, which in a product this regulated is what defines what can be built at all.",
       imageSrc: "/images/weedly.jpg",
+      imageCaption: "Weedly visual presentation.",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -287,7 +269,7 @@ export const en: Content = {
       ],
       highlights: [
         "Designed and implemented the full-stack architecture in Next.js and TypeScript.",
-        "Server Actions and SSR to keep state consistent in real time without hurting performance.",
+        "Server Actions for data operations and SSR for rendering pages on the server.",
         "Defined the MVP and roadmap, prioritizing by real business and user impact.",
         "Closed partnerships with cannabis clubs and ran the discovery meetings that adapted the product to the sector's operational and legal requirements.",
       ],
@@ -297,7 +279,7 @@ export const en: Content = {
           heading: "What I did",
           bullets: [
             "Complete full-stack architecture: Next.js, TypeScript, Prisma and PostgreSQL.",
-            "Secure Server Actions and server-side rendering for real-time consistency.",
+            "Data operations with Server Actions and server-rendered pages.",
             "Responsive UI designed for daily administrative use, not for a demo.",
             "MVP definition and product roadmap.",
             "Club partnerships, discovery meetings and adapting the product to legal and operational requirements.",
@@ -309,15 +291,19 @@ export const en: Content = {
     },
     {
       id: "iparkings",
+      featured: {
+        value: "6–8 → 4–6",
+        label: "Steps in the payment flow",
+        detail: "A self-payment redesign: fewer decisions before collecting the car.",
+      },
       title: "iParkings",
       role: "Frontend Developer",
       period: "November 2023 - December 2024",
       type: "work",
       shortDescription:
-        "Self-payment system for private parking lots, serving over 150,000 monthly users.",
+        "Self-payment redesign: fewer steps to pay and a 40% reduction in complaint tickets recorded in Jira.",
       fullDescription:
         "iParkings operates private parking lots across Uruguay. I worked on the self-payment system: the terminal where drivers pay before collecting their car. It's a demanding context, because the user is in a hurry, standing up, and when the flow fails it's the parking staff who take the complaint.",
-      imageSrc: "/images/iparkings.jpg",
       technologies: [
         "JavaScript",
         "HTML",
@@ -328,16 +314,20 @@ export const en: Content = {
         "Responsive Design",
       ],
       highlights: [
-        "Over 150,000 monthly users on the system I worked on.",
-        "Cut the payment flow from 6-8 steps to 4-6, driving a 40% drop in user complaints.",
+        "The parking facility received 150,000 users per month; this is facility volume, not measured interface users.",
+        "Cut the payment flow from 6-8 to 4-6 steps. Complaint tickets recorded in Jira fell by 40%.",
         "Built the “Free Parking” mode, which took operational load off the staff.",
         "Led UX/UI design, functional testing and the platform's technical documentation.",
       ],
       liveLink: "https://pagoparking.com",
       caseStudy: [
         {
+          heading: "Confidentiality",
+          body: "Interfaces, screenshots and internal documentation from this work are confidential. This case describes my contribution and how the outcome was measured without publishing those materials.",
+        },
+        {
           heading: "The detail that mattered most",
-          body: "Every step I removed was one less place for someone to get stuck with a car waiting behind them. Going from 6-8 steps to 4-6 wasn't a visual redesign: it was removing decisions the system could make on its own. The 40% drop in complaints is the metric that confirms it.",
+          body: "Every step I removed was one less place for someone to get stuck with a car waiting behind them. Going from 6-8 steps to 4-6 wasn't a visual redesign: it was removing decisions the system could make on its own. The 40% reduction in complaints was measured through tickets recorded in Jira.",
         },
         {
           heading: "Working with hardware",
@@ -356,6 +346,7 @@ export const en: Content = {
       fullDescription:
         "TengoKarga was a logistics platform connecting freight with carriers. I worked full stack for two years, on product features and on the tooling the internal team needed to support users. The platform is no longer online.",
       imageSrc: "/images/tengokarga.jpg",
+      imageCaption: "Archive image of TengoKarga; the platform no longer operates.",
       technologies: [
         "React",
         "Redux",
@@ -390,6 +381,7 @@ export const en: Content = {
       fullDescription:
         "Website for the Timb Arquitectura studio. The requirement was that the studio could publish its own projects without depending on anyone, so WordPress was the base, with CSS customization so the template wouldn't show and the design would match the studio's aesthetic.",
       imageSrc: "/images/timb1.jpg",
+      imageCaption: "Timb Arquitectura website.",
       technologies: ["WordPress", "CSS", "Responsive Design", "UX/UI Design"],
       liveLink: "https://www.timb.com.uy",
     },
@@ -403,7 +395,6 @@ export const en: Content = {
         "The site you're on. Next.js, no animation dependencies, bilingual.",
       fullDescription:
         "My own portfolio, built with Next.js App Router. Project pages are static and generated at build time, so there's no server function that can fail at runtime. Animations are pure CSS: the content is visible in the HTML and the animation is an enhancement, not a requirement for reading the page. Available in Spanish and English.",
-      imageSrc: "/images/portfolio.jpg",
       technologies: [
         "Next.js",
         "TypeScript",
@@ -418,18 +409,18 @@ export const en: Content = {
   ],
   meta: {
     home: {
-      title: "Alfonso Rodriguez | Full Stack Developer",
+      title: "Alfonso Rodríguez | Product & Technology",
       description:
-        "Full Stack Developer based in Montevideo. Next.js, TypeScript and PostgreSQL, with the product research that decides what gets built. Currently building MedShift.",
+        "Alfonso Rodríguez: product experience, a full-stack background and business training. Seeking a Product Owner role. MedShift and iParkings case studies.",
       keywords:
-        "Full Stack Developer, Next.js, TypeScript, React, PostgreSQL, Supabase, Product, UX/UI, Uruguay, Montevideo, remote",
+        "Product Owner, Product Discovery, MVP, Prioritization, Full Stack, UX/UI, Uruguay, Montevideo",
     },
     about: {
       title: "Alfonso Rodriguez | About",
       description:
-        "Experience, stack and education of Alfonso Rodriguez: Full Stack Developer with a business background, working from Montevideo with local and remote teams.",
+        "Alfonso Rodríguez: user research, MVP definition and full-stack development experience. Seeking a Product Owner role.",
       keywords:
-        "Alfonso Rodriguez, Full Stack Developer, experience, stack, Next.js, TypeScript, Uruguay",
+        "Alfonso Rodriguez, Product Owner, experience, product, discovery, development, Uruguay",
     },
     bio: {
       title: "Alfonso Rodriguez | From numbers to product",

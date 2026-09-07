@@ -1,10 +1,10 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Briefcase, GraduationCap, Code, Globe, ArrowUpRight } from "lucide-react";
-import GoBackButton from "@/components/GoBackButton";
+import Header from "@/components/Header";
+import ContactFooter from "@/components/ContactFooter";
 import DownloadCV from "@/components/DescargaCV";
 import Reveal from "@/components/ui/reveal";
-import BoxReveal from "@/components/ui/box-reveal";
 import { getContent, href, type Locale } from "@/content";
 import { GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
 
@@ -12,13 +12,9 @@ export default function AboutView({ locale }: { locale: Locale }) {
   const t = getContent(locale);
 
   return (
-    <div lang={t.htmlLang} className="bg-cream min-h-screen p-6">
-      <div className="max-w-4xl mx-auto">
-        <GoBackButton
-          locale={locale}
-          label={t.nav.back}
-          homeLabel={t.nav.home}
-        />
+    <div lang={t.htmlLang} className="site-shell">
+      <Header locale={locale} altHref={locale === "es" ? "/about" : "/es/sobre-mi"} />
+      <main id="main" tabIndex={-1} className="max-w-4xl mx-auto pt-10 sm:pt-14">
 
         <h1 className="text-4xl sm:text-5xl font-bold text-teal mb-8">
           {t.about.title}
@@ -32,7 +28,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
               </p>
             ))}
             <div className="flex flex-wrap gap-4 pt-2 text-teal font-semibold">
-              <DownloadCV label={t.nav.cv} />
+              <DownloadCV label={t.nav.cv} locale={locale} />
               <Link
                 href={GITHUB_URL}
                 target="_blank"
@@ -51,13 +47,13 @@ export default function AboutView({ locale }: { locale: Locale }) {
               </Link>
             </div>
           </div>
-          <div className="hidden sm:block relative aspect-square rounded-full overflow-hidden">
+          <div className="hidden md:block relative aspect-square rounded-2xl overflow-hidden">
             <Image
               src="/images/profilePic.jpeg"
               alt="Alfonso Rodríguez"
               fill
               sizes="(max-width: 768px) 0px, 280px"
-              className="object-cover"
+              className="object-cover object-bottom"
             />
           </div>
         </div>
@@ -95,18 +91,18 @@ export default function AboutView({ locale }: { locale: Locale }) {
             <Code className="hidden sm:block mr-2" aria-hidden="true" />
             {t.about.skillsTitle}
           </h2>
-          {t.about.skills.map((group) => (
+          {[...t.about.skills.slice(-1), ...t.about.skills.slice(0, -1)].map((group) => (
             <div key={group.title} className="mb-6">
               <h3 className="text-2xl font-semibold mb-4 text-charcoal">
                 {group.title}
               </h3>
-              <ul className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <ul className="flex flex-wrap gap-2">
                 {group.items.map((skill, index) => (
                   <Reveal
                     as="li"
                     key={skill}
                     delay={index * 40}
-                    className="bg-gold text-charcoal p-3 rounded-lg text-center font-semibold"
+                    className="border border-teal/25 text-teal px-3 py-2 rounded-full text-sm"
                   >
                     {skill}
                   </Reveal>
@@ -139,19 +135,20 @@ export default function AboutView({ locale }: { locale: Locale }) {
           </h2>
           <p className="text-lg text-charcoal mb-6">{t.about.international}</p>
           <ul className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            {t.about.languages.map((lang, index) => (
+            {t.about.languages.map((lang) => (
               <li key={lang.language}>
-                <BoxReveal delay={index * 90} className="w-full">
+                <div className="w-full">
                   <span className="block bg-teal text-cream p-4 rounded-lg">
                     <span className="block font-bold">{lang.language}</span>
                     <span className="block">{lang.level}</span>
                   </span>
-                </BoxReveal>
+                </div>
               </li>
             ))}
           </ul>
         </section>
-      </div>
+      </main>
+      <ContactFooter locale={locale} />
     </div>
   );
 }

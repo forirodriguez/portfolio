@@ -1,67 +1,32 @@
 import Link from "next/link";
-import { MessageCircleCode, UserRound } from "lucide-react";
-import ProjectsDropdown from "./ProjectsDropdown";
+import { ArrowUpRight } from "lucide-react";
 import LanguageSwitch from "./LanguageSwitch";
-import Reveal from "./ui/reveal";
 import { getContent, href, type Locale } from "@/content";
-import { WHATSAPP_URL } from "@/lib/links";
+import { MAILTO_URL } from "@/lib/links";
 
-interface HeaderProps {
-  locale: Locale;
-  /** Ruta equivalente en el otro idioma */
-  altHref: string;
-}
-
-export default function Header({ locale, altHref }: HeaderProps) {
+export default function Header({ locale, altHref }: { locale: Locale; altHref: string }) {
   const t = getContent(locale);
-  const other: Locale = locale === "es" ? "en" : "es";
 
   return (
-    <Reveal>
-      <header className="bg-teal p-4 rounded-lg flex justify-between items-center mb-10">
-        <Link href={href(locale)} className="text-2xl hidden sm:block">
-          <span className="italic font-extralight">M. Alfonso </span>
-          <span className="font-bold">Rodríguez</span>
+    <>
+      <a href="#main" className="skip-link">{t.nav.skip}</a>
+      <header className="site-header">
+        <Link href={href(locale)} className="site-name" aria-label={`Alfonso Rodríguez · ${t.nav.home}`}>
+          Alfonso <strong>Rodríguez<span className="text-teal">.</span></strong>
         </Link>
-        <Link href={href(locale)} className="text-3xl text-gold sm:hidden">
-          <span className="italic font-extralight">A.</span>
-          <span className="font-bold">R</span>
-        </Link>
-        <nav>
-          <ul className="flex items-center space-x-1 sm:space-x-2 text-sm">
-            <ProjectsDropdown
-              locale={locale}
-              projects={t.projects}
-              label={t.nav.projects}
-            />
+        <nav aria-label={t.nav.home}>
+          <ul className="flex flex-wrap items-center gap-1 sm:gap-3 text-sm">
+            <li><Link className="nav-link" href={`${href(locale)}#work`}>{t.nav.projects}</Link></li>
+            <li><Link className="nav-link" href={href(locale, locale === "es" ? "/sobre-mi" : "/about")}>{t.nav.about}</Link></li>
             <li>
-              <Link
-                href={href(locale, locale === "es" ? "/sobre-mi" : "/about")}
-                className="flex items-center hover:text-gold transition-colors p-2 rounded-md"
-              >
-                <span className="hidden sm:inline">{t.nav.about}</span>
-                <UserRound className="sm:hidden" />
+              <Link className="nav-link" href={MAILTO_URL} aria-label={t.nav.talk} title={t.nav.talk}>
+                <span className="hidden sm:inline">{t.nav.talk}</span><ArrowUpRight size={20} aria-hidden="true" />
               </Link>
             </li>
-            <li>
-              <Link
-                href={WHATSAPP_URL[locale]}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center hover:text-gold transition-colors p-2 rounded-md"
-              >
-                <span className="hidden sm:inline">{t.nav.talk}</span>
-                <MessageCircleCode className="sm:hidden" />
-              </Link>
-            </li>
-            <LanguageSwitch
-              href={altHref}
-              label={t.switchLabel}
-              hrefLang={other}
-            />
+            <LanguageSwitch href={altHref} label={t.switchLabel} hrefLang={locale === "es" ? "en" : "es"} />
           </ul>
         </nav>
       </header>
-    </Reveal>
+    </>
   );
 }

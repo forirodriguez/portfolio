@@ -14,24 +14,16 @@ export default function ProjectsNav({
   currentProjectId,
 }: Props) {
   return (
-    <nav className="flex flex-wrap gap-x-1 gap-y-2 justify-end mb-8">
-      {projects.map((project) => {
-        const isCurrent = project.id === currentProjectId;
-        return (
-          <Link
-            key={project.id}
-            href={href(locale, `/${project.id}`)}
-            aria-current={isCurrent ? "page" : undefined}
-            className={`rounded-md px-2 py-1 text-sm transition-colors ${
-              isCurrent
-                ? "bg-teal text-gold"
-                : "text-teal hover:bg-gold hover:text-charcoal"
-            }`}
-          >
-            {project.title}
-          </Link>
-        );
-      })}
+    <nav className="flex flex-wrap gap-x-1 gap-y-2 justify-start mb-8">
+      {projects.filter((project) => project.id !== currentProjectId).map((project) => (
+        <Link
+          key={project.id}
+          href={href(locale, `/${project.id}`)}
+          className="rounded-md px-3 py-2 min-h-11 inline-flex items-center text-sm text-teal hover:bg-gold hover:text-charcoal"
+        >
+          {project.title}
+        </Link>
+      ))}
     </nav>
   );
 }
