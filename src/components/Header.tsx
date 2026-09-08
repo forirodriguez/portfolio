@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
 import LanguageSwitch from "./LanguageSwitch";
+import ThemeToggle from "./ThemeToggle";
 import { getContent, href, type Locale } from "@/content";
 import { MAILTO_URL } from "@/lib/links";
 
@@ -24,6 +25,7 @@ export default function Header({ locale, altHref }: { locale: Locale; altHref: s
               </Link>
             </li>
             <LanguageSwitch href={altHref} label={t.switchLabel} hrefLang={locale === "es" ? "en" : "es"} />
+            <ThemeToggle locale={locale} />
           </ul>
         </nav>
       </header>

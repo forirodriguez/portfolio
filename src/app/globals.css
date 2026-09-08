@@ -14,8 +14,10 @@ body {
 
 
 @layer base {
+  /* Light (crema) es el default. El verde oscuro entra solo con data-theme="dark",
+     no con prefers-color-scheme: la eleccion es del usuario, no del SO. */
   :root {
-    color-scheme: light dark;
+    color-scheme: light;
     --cream: 245 246 242;
     --charcoal: 35 44 43;
     --teal: 39 79 76;
@@ -23,14 +25,13 @@ body {
     --border: 160 175 169;
     --radius: 1rem;
   }
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --cream: 23 31 30;
-      --charcoal: 229 235 230;
-      --teal: 160 207 189;
-      --surface: 32 44 41;
-      --border: 84 105 96;
-    }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --cream: 23 31 30;
+    --charcoal: 229 235 230;
+    --teal: 160 207 189;
+    --surface: 32 44 41;
+    --border: 84 105 96;
   }
   body { @apply bg-cream text-charcoal; }
   ::selection { background: rgb(var(--teal) / .2); }
@@ -129,3 +130,19 @@ main:focus { outline: none; }
     animation: retype-caret 480ms steps(1, end) 2;
   }
 }
+
+/* Cambio de theme: el theme nuevo se "pinta" sobre el viejo en un circulo que
+   sale del boton. El radio y el origen los calcula ThemeToggle en el click.
+   Sin View Transitions (o con reduced motion) el cambio es instantaneo. */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) { z-index: 1; }
+::view-transition-new(root) { z-index: 2; }
+
+/* Los dos iconos van siempre en el DOM y los cambia el CSS: asi el icono no
+   depende de estado de React y no parpadea al hidratar. */
+:root[data-theme="dark"] .icon-moon,
+:root:not([data-theme="dark"]) .icon-sun { display: none; }

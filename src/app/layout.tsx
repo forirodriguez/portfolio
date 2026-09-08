@@ -28,7 +28,16 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Corre antes del primer paint: sin esto, quien eligio dark ve un
+            flash crema al cargar. Light no necesita nada, ya es el default. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.theme==="dark")document.documentElement.dataset.theme="dark"}catch{}`,
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
