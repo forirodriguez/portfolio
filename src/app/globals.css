@@ -99,3 +99,33 @@ main:focus { outline: none; }
   .nav-link { padding-inline: 8px; }
   .home-hero { padding-top: 36px; }
 }
+
+/* Cambio de idioma: los textos se reescriben en el nuevo idioma.
+   El wipe va en pasos para que se lea como tipeo, no como fade.
+   El delay se hereda por contenedor (custom property) para evitar peleas de
+   especificidad con :is(). Fill backwards: al terminar, clip-path vuelve a none. */
+@keyframes retype {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0 0 0); }
+}
+@keyframes retype-caret { 50% { opacity: 0; } }
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-retype] main { --retype-delay: 120ms; }
+  [data-retype] .home-hero { --retype-delay: 0ms; }
+  [data-retype] .contact-footer { --retype-delay: 220ms; }
+  [data-retype] :is(.eyebrow, .hero-title, .proof-value, h1, h2, h3, p, li, figcaption) {
+    animation: retype 420ms steps(20, end) var(--retype-delay, 0ms) backwards;
+  }
+  [data-retype] .hero-title span { animation-delay: 220ms; }
+  [data-retype] :is(.eyebrow, .hero-title span)::after {
+    content: "";
+    display: inline-block;
+    width: 0.07em;
+    height: 1em;
+    margin-left: 0.1em;
+    vertical-align: -0.12em;
+    background: currentColor;
+    animation: retype-caret 480ms steps(1, end) 2;
+  }
+}
