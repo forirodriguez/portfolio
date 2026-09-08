@@ -21,11 +21,10 @@ Las rutas de proyecto (`/[id]` y `/es/[id]`) usan `generateStaticParams` con
 `dynamicParams = false`. Se generan en build y se sirven desde el CDN: las páginas no necesitan una función de servidor para generar su contenido en cada visita.
 Un id que no existe da 404, no error.
 
-**3. Las animaciones son CSS y no bloquean el contenido.**
+**3. El contenido no depende de JavaScript.**
 El titular es fijo y los proyectos son enlaces visibles en el HTML, sin pestañas
-ni acordeones. La entrada suave de algunas secciones usa CSS, sin ocultar el texto
-y respetando `prefers-reduced-motion`. El menú, el cambio de idioma y los casos
-se pueden recorrer sin JavaScript.
+ni acordeones. El menú, el cambio de idioma y los casos se pueden recorrer sin
+JavaScript.
 
 ---
 
@@ -77,7 +76,6 @@ src/
     not-found.tsx             # 404 bilingüe
   components/
     pages/                    # HomeView, AboutView, BioView (compartidas entre idiomas)
-    ui/                       # reveal (CSS, sin ocultar contenido)
   content/
     types.ts  es.ts  en.ts    # todo el texto del sitio
   lib/

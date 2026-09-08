@@ -24,10 +24,10 @@ export const en: Content = {
     skip: "Skip to content",
   },
   home: {
-    eyebrow: "Product · Technology · Montevideo, Uruguay",
+    eyebrow: "Product & technology",
     heroTitle: "Decide what to build.",
     heroHighlight: "Understand how to deliver it.",
-    intro: "I'm Alfonso, looking for my next role as a Product Owner. I combine user research, MVP definition and product prioritization with a background in full-stack development and business.",
+    intro: "I’m Alfonso. Seeking a Product Owner role, with experience in user research, full-stack development and business.",
     contactSmall: "Hiring a Product Owner with a technical background?",
     contactBig: "Get in touch",
     contactIntro: "I'm seeking a Product Owner role working closely with users and engineering teams. If my background fits your team, let's talk.",
@@ -292,7 +292,7 @@ export const en: Content = {
     {
       id: "iparkings",
       featured: {
-        value: "6–8 → 4–6",
+        value: "6-8 → 4-6",
         label: "Steps in the payment flow",
         detail: "A self-payment redesign: fewer decisions before collecting the car.",
       },
@@ -392,9 +392,9 @@ export const en: Content = {
       period: "2024 - 2026",
       type: "project",
       shortDescription:
-        "The site you're on. Next.js, no animation dependencies, bilingual.",
+        "The site you're on. Next.js, static and bilingual.",
       fullDescription:
-        "My own portfolio, built with Next.js App Router. Project pages are static and generated at build time, so there's no server function that can fail at runtime. Animations are pure CSS: the content is visible in the HTML and the animation is an enhancement, not a requirement for reading the page. Available in Spanish and English.",
+        "My own portfolio, built with Next.js App Router. Project pages are static and generated at build time, so there's no server function that can fail at runtime. The content is fully visible in the server HTML, with no animation dependencies. Available in Spanish and English.",
       technologies: [
         "Next.js",
         "TypeScript",

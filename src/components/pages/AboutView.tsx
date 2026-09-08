@@ -4,7 +4,6 @@ import { Briefcase, GraduationCap, Code, Globe, ArrowUpRight } from "lucide-reac
 import Header from "@/components/Header";
 import ContactFooter from "@/components/ContactFooter";
 import DownloadCV from "@/components/DescargaCV";
-import Reveal from "@/components/ui/reveal";
 import { getContent, href, type Locale } from "@/content";
 import { GITHUB_URL, LINKEDIN_URL } from "@/lib/links";
 
@@ -33,7 +32,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold transition-colors"
+                className="hover:underline underline-offset-4"
               >
                 GitHub
               </Link>
@@ -41,7 +40,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-gold transition-colors"
+                className="hover:underline underline-offset-4"
               >
                 LinkedIn
               </Link>
@@ -63,26 +62,25 @@ export default function AboutView({ locale }: { locale: Locale }) {
             <Briefcase className="hidden sm:block mr-2" aria-hidden="true" />
             {t.about.experienceTitle}
           </h2>
-          {t.about.jobs.map((job, index) => (
-            <Reveal
+          {t.about.jobs.map((job) => (
+            <div
               key={`${job.company}-${job.period}`}
-              delay={index * 70}
-              className="mb-6 bg-teal text-cream p-6 rounded-lg"
+              className="experience-entry"
             >
               <h3 className="text-xl font-bold">{job.company}</h3>
-              <p className="text-gold">{job.role}</p>
-              <p className="text-sm mb-3 text-cream/80">{job.period}</p>
+              <p className="text-teal">{job.role}</p>
+              <p className="text-sm mb-3 text-charcoal/80">{job.period}</p>
               <p>{job.description}</p>
               {job.projectId && (
                 <Link
-                  className="text-gold inline-flex items-center mt-4"
+                  className="text-teal inline-flex items-center mt-4 hover:underline underline-offset-4"
                   href={href(locale, `/${job.projectId}`)}
                 >
                   {t.nav.viewProject}
                   <ArrowUpRight className="ml-1" size={20} />
                 </Link>
               )}
-            </Reveal>
+            </div>
           ))}
         </section>
 
@@ -97,15 +95,13 @@ export default function AboutView({ locale }: { locale: Locale }) {
                 {group.title}
               </h3>
               <ul className="flex flex-wrap gap-2">
-                {group.items.map((skill, index) => (
-                  <Reveal
-                    as="li"
+                {group.items.map((skill) => (
+                  <li
                     key={skill}
-                    delay={index * 40}
                     className="border border-teal/25 text-teal px-3 py-2 rounded-full text-sm"
                   >
                     {skill}
-                  </Reveal>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -138,7 +134,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
             {t.about.languages.map((lang) => (
               <li key={lang.language}>
                 <div className="w-full">
-                  <span className="block bg-teal text-cream p-4 rounded-lg">
+                  <span className="block border border-teal/20 text-charcoal p-4 rounded-2xl">
                     <span className="block font-bold">{lang.language}</span>
                     <span className="block">{lang.level}</span>
                   </span>

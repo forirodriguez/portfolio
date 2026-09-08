@@ -24,10 +24,10 @@ export const es: Content = {
     skip: "Saltar al contenido",
   },
   home: {
-    eyebrow: "Producto · Tecnología · Montevideo, Uruguay",
+    eyebrow: "Producto y tecnología",
     heroTitle: "Definir qué construir.",
     heroHighlight: "Entender cómo hacerlo.",
-    intro: "Soy Alfonso. Busco mi próximo rol como Product Owner. Combino investigación de usuarios, definición de MVP y priorización de producto con experiencia en desarrollo full stack y negocios.",
+    intro: "Soy Alfonso. Busco un rol de Product Owner, con experiencia en investigación, desarrollo full stack y negocios.",
     contactSmall: "¿Buscás un Product Owner con base técnica?",
     contactBig: "Escribime",
     contactIntro: "Busco un rol de Product Owner donde pueda trabajar cerca de usuarios y equipos de desarrollo. Si el perfil encaja con tu equipo, conversemos.",
@@ -292,7 +292,7 @@ export const es: Content = {
     {
       id: "iparkings",
       featured: {
-        value: "6–8 → 4–6",
+        value: "6-8 → 4-6",
         label: "Pasos en el flujo de pago",
         detail: "Rediseño del auto-cobro: menos decisiones antes de retirar el auto.",
       },
@@ -392,9 +392,9 @@ export const es: Content = {
       period: "2024 - 2026",
       type: "project",
       shortDescription:
-        "El sitio donde estás parado. Next.js, sin dependencias de animación, bilingüe.",
+        "El sitio donde estás parado. Next.js, estático y bilingüe.",
       fullDescription:
-        "Portfolio propio en Next.js con App Router. Las páginas de proyecto son estáticas y se generan en build, sin generar el contenido de cada página en cada visita. Las animaciones son CSS puro: el contenido está visible en el HTML y la animación es un agregado, no un requisito para leer la página. Disponible en español e inglés.",
+        "Portfolio propio en Next.js con App Router. Las páginas de proyecto son estáticas y se generan en build, sin generar el contenido de cada página en cada visita. El contenido está completamente visible en el HTML del servidor, sin dependencias de animación. Disponible en español e inglés.",
       technologies: [
         "Next.js",
         "TypeScript",

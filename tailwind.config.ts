@@ -11,10 +11,9 @@ const config: Config = {
   	extend: {
       fontFamily: { sans: ["var(--font-geist-sans)", "Arial", "sans-serif"] },
       colors: {
-  			cream: '#EFEEE5',
-  			teal: '#274546',
-  			charcoal: '#333333',
-  			gold: '#F2A541',
+      cream: 'rgb(var(--cream) / <alpha-value>)',
+      teal: 'rgb(var(--teal) / <alpha-value>)',
+      charcoal: 'rgb(var(--charcoal) / <alpha-value>)',
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {
@@ -63,6 +62,6 @@ const config: Config = {
   		}
   	}
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [],
 };
 export default config;

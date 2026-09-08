@@ -22,9 +22,9 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
         </div>
         {project.featured && (
           <div className="project-proof rounded-2xl mb-10">
-            <p className="eyebrow text-cream/75">{project.featured.label}</p>
+            <p className="text-sm text-teal">{project.featured.label}</p>
             <p className="proof-value">{project.featured.value}</p>
-            <p className="text-cream/80 leading-relaxed">{project.featured.detail}</p>
+            <p className="text-charcoal/80 leading-relaxed">{project.featured.detail}</p>
           </div>
         )}
         <div className="grid md:grid-cols-3 gap-8 border-y border-teal/20 py-8 mb-10">

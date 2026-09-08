@@ -1,6 +1,5 @@
 import Header from "@/components/Header";
 import ContactFooter from "@/components/ContactFooter";
-import Reveal from "@/components/ui/reveal";
 import { getContent, type Locale } from "@/content";
 
 export default function BioView({ locale }: { locale: Locale }) {
@@ -16,26 +15,18 @@ export default function BioView({ locale }: { locale: Locale }) {
         </h1>
 
         <div className="space-y-6 pb-12">
-          {t.bio.sections.map((section, index) => (
-            <Reveal
-              key={section.heading}
-              delay={index * 60}
-              className={`p-6 rounded-lg ${
-                index % 2 === 0
-                  ? "bg-teal text-cream"
-                  : "bg-gold text-charcoal"
-              }`}
-            >
+          {t.bio.sections.map((section) => (
+            <div key={section.heading} className="bio-section">
               <h2 className="text-2xl font-bold mb-3">{section.heading}</h2>
               {section.body && <p className="text-lg">{section.body}</p>}
               {section.bullets && (
                 <ul className="mt-3 space-y-2">
                   {section.bullets.map((bullet) => (
-                    <li key={bullet}>— {bullet}</li>
+                    <li key={bullet}>{bullet}</li>
                   ))}
                 </ul>
               )}
-            </Reveal>
+            </div>
           ))}
         </div>
       </main>

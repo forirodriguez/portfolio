@@ -19,7 +19,7 @@ export default function ProjectsNav({
         <Link
           key={project.id}
           href={href(locale, `/${project.id}`)}
-          className="rounded-md px-3 py-2 min-h-11 inline-flex items-center text-sm text-teal hover:bg-gold hover:text-charcoal"
+          className="rounded-full px-3 py-2 min-h-11 inline-flex items-center text-sm text-teal hover:bg-teal hover:text-cream"
         >
           {project.title}
         </Link>
