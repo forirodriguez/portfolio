@@ -44,7 +44,7 @@ export default function HomeView({ locale }: { locale: Locale }) {
                 {project.id === "iparkings" ? (
                   <figure>
                     <span className="project-media block">
-                    <Image src="/images/parking-context.webp" alt={locale === "es" ? "Imagen conceptual de un estacionamiento, generada con IA" : "AI-generated conceptual parking image"} width={1200} height={800} sizes="(max-width: 767px) 100vw, 540px" className="project-image" />
+                    <Image src="/images/parking-context.webp" alt={locale === "es" ? "Imagen conceptual de un estacionamiento, generada con IA" : "AI-generated conceptual parking image"} width={1200} height={800} priority sizes="(max-width: 767px) 100vw, 540px" className="project-image" />
                     </span>
                     <figcaption className="text-xs text-charcoal/80 mt-2">{locale === "es" ? "Imagen ilustrativa. Interfaces confidenciales." : "Illustrative image. Interfaces are confidential."}</figcaption>
                   </figure>
