@@ -21,7 +21,7 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
           {project.liveLink && <Link className="button-dark" href={project.liveLink} target="_blank" rel="noopener noreferrer">{t.nav.liveSite}<ExternalLink size={18} aria-hidden="true" /></Link>}
           {project.githubLink && <Link className="button-outline" href={project.githubLink} target="_blank" rel="noopener noreferrer">{t.nav.repo}<Github size={18} aria-hidden="true" /></Link>}
         </div>
-        {(project.id === "medshift" || project.id === "iparkings") && (
+        {(project.id === "medshift" || project.id === "iparkings" || project.id === "weedly") && (
           <div className="case-visual"><CaseVisual project={project.id} locale={locale} scope="detail" /></div>
         )}
         {project.featured && (
@@ -49,7 +49,7 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
             </section>
           ))}
         </div>
-        {project.imageSrc && (
+        {project.imageSrc && project.id !== "weedly" && (
           <figure className="my-10">
             <Image src={project.imageSrc} alt={project.imageCaption || project.title} width={1000} height={500} sizes="(max-width: 960px) 100vw, 896px" className="rounded-xl w-full h-auto max-h-[420px] object-contain bg-teal/5" />
             {project.imageCaption && <figcaption className="text-sm text-teal mt-3">{project.imageCaption}</figcaption>}

@@ -40,7 +40,7 @@ export default function HomeView({ locale }: { locale: Locale }) {
             {featured.map(project => <a key={project.id} href={`#${project.id}-case`}>{project.title}</a>)}
           </nav>
           {featured.map(project => (
-            <article key={project.id} id={`${project.id}-case`} className={project.id === "medshift" ? "case-chapter chapter-medshift" : "case-chapter chapter-parking"}>
+            <article key={project.id} id={`${project.id}-case`} className={project.id === "medshift" ? "case-chapter chapter-medshift" : project.id === "weedly" ? "case-chapter chapter-weedly" : "case-chapter chapter-parking"}>
               <div className="chapter-inner">
                 <div className="chapter-heading">
                   <h3><Link href={href(locale, `/${project.id}`)}>{project.title}<ArrowUpRight strokeWidth={1} aria-hidden="true" /></Link></h3>
@@ -54,7 +54,7 @@ export default function HomeView({ locale }: { locale: Locale }) {
                     <Link href={href(locale, `/${project.id}`)} className="chapter-link">{locale === "es" ? "Recorrer el caso" : "Explore the case"}<ArrowUpRight size={20} strokeWidth={1.5} aria-hidden="true" /></Link>
                     <p className="chapter-stack">{project.technologies.slice(0, 5).join(" / ")}</p>
                   </div>
-                  <CaseVisual project={project.id === "medshift" ? "medshift" : "iparkings"} locale={locale} scope="home" />
+                  <CaseVisual project={project.id === "medshift" ? "medshift" : project.id === "weedly" ? "weedly" : "iparkings"} locale={locale} scope="home" />
                 </div>
               </div>
             </article>

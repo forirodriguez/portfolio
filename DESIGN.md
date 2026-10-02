@@ -8,8 +8,9 @@ abstracta tampoco explicaba quién es Alfonso ni qué decisiones toma.
 
 ## La idea de esta versión
 
-La identidad abre el recorrido. Los trabajos muestran dos maneras distintas de
-aportar criterio: investigar qué construir y simplificar lo que ya existe.
+La identidad abre el recorrido. Los trabajos muestran tres maneras de
+aportar criterio: investigar qué construir, simplificar lo que ya existe y
+conectar producto con negocio.
 No hay una imagen decorativa central. La materia visual son el nombre, los
 datos de investigación, el número de pasos y las pantallas reales del producto.
 
@@ -20,10 +21,13 @@ datos de investigación, el número de pasos y las pantallas reales del producto
   Al salir de pantalla, las dos líneas se separan con el scroll, sin alterar
   el desplazamiento ni ocultar la información cuando se pide movimiento reducido.
 - Recorrido: el índice lleva a capítulos a ancho completo. Una navegación fija
-  dentro de la sección permite pasar entre ambos casos.
+  dentro de la sección permite pasar entre los tres casos.
 - MedShift: la vista Producto muestra pantallas públicas con datos ficticios.
   Investigación muestra 29 de 50 respuestas y la decisión de priorizar cobros.
   Las dos vistas ocupan el mismo espacio para evitar saltos al compararlas.
+- Weedly: capítulo propio con la misma escala y acceso directo. Se alternan
+  capturas de la portada pública y del recorrido para asociarse a un club;
+  no se presentan como pantallas de gestión.
 - iParkings: el contraste 6–8 y 4–6 se dibuja con el número de pasos, incluidos
   los extremos variables. No representa pantallas ni nombres de pasos reales.
 - Trayectoria: los proyectos secundarios se abren en un archivo nativo, con
@@ -44,3 +48,9 @@ Las cifras vienen de los casos existentes. El rediseño no añade resultados ni
 cambia cargos, fechas, documentos, rutas o condiciones de confidencialidad.
 Las comparaciones y el archivo funcionan con teclado y sin JavaScript. Las
 animaciones respetan movimiento reducido.
+
+## Fuentes de las capturas de Weedly
+
+Capturas del 2 de octubre de 2026: https://www.weedly.uy/ y
+https://www.weedly.uy/hacete-socio. Son material público actual; el rol y período
+del caso conservan la información existente.

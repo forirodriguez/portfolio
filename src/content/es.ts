@@ -32,7 +32,7 @@ export const es: Content = {
     contactBig: "Escribime",
     contactIntro: "Busco un rol de Product Owner donde pueda trabajar cerca de usuarios y equipos de desarrollo. Si el perfil encaja con tu equipo, conversemos.",
     selectedWork: "Trabajos seleccionados",
-    selectedIntro: "Dos casos: investigar qué construir y mejorar lo que ya se usa.",
+    selectedIntro: "Investigar qué construir, mejorar lo que ya se usa y conectar producto con negocio.",
     moreWork: "Más experiencia",
     aboutTitle: "Producto, negocio y criterio técnico.",
     aboutIntro: "Vengo de Administración de Empresas y de trabajar en finanzas y operaciones con equipos de Estados Unidos e India. Hoy uso esa experiencia para investigar problemas, definir el alcance y desarrollar productos. Trabajo en español e inglés.",
@@ -256,8 +256,13 @@ export const es: Content = {
         "Plataforma de administración para clubes cannábicos en Uruguay.",
       fullDescription:
         "Weedly es una plataforma de gestión para clubes cannábicos uruguayos, un sector con requisitos operativos y legales muy específicos. Tuve un rol cruzado: llevé la arquitectura full-stack y al mismo tiempo el desarrollo de negocio, que en un producto tan regulado es la parte que define qué se puede construir.",
-      imageSrc: "/images/weedly.jpg",
-      imageCaption: "Presentación visual de Weedly.",
+      imageSrc: "/images/weedly-public-web.jpg",
+      imageCaption: "Captura de la web pública de Weedly.",
+      featured: {
+        value: "MVP",
+        label: "Producto y desarrollo de negocio",
+        detail: "Discovery con clubes, definición del roadmap y arquitectura full-stack.",
+      },
       technologies: [
         "Next.js",
         "TypeScript",

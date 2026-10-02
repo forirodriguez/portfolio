@@ -62,6 +62,10 @@ def check(base):
         assert pages[url] and fragment in pages[url].ids, f'Broken anchor: {url}#{fragment}'
     for prefix in ('', '/es'):
         home = pages[base + (prefix or '/')]
+        for project in ('medshift', 'iparkings', 'weedly'):
+            assert f'{project}-case' in home.ids, f'{project} missing featured chapter'
+            assert f'home-{project}' in home.radios, f'{project} missing visual controls'
+            assert f'detail-{project}' in pages[base + prefix + '/' + project].radios, f'{project} missing detail visual controls'
         for project in ('medshift', 'iparkings', 'weedly', 'tengokarga', 'timb-arquitectura'):
             assert f'{prefix}/{project}' in home.links, f'{project} missing from {prefix or "/"}'
         try:

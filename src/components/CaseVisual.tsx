@@ -2,17 +2,17 @@ import Image from "next/image";
 import type { Locale } from "@/content";
 
 /** Native radios keep the visual comparison usable with keyboard and without JavaScript. */
-export default function CaseVisual({ project, locale, scope }: { project: "medshift" | "iparkings"; locale: Locale; scope: string }) {
+export default function CaseVisual({ project, locale, scope }: { project: "medshift" | "iparkings" | "weedly"; locale: Locale; scope: string }) {
   const es = locale === "es";
   const id = `${scope}-${project}`;
   return (
     <figure className={`case-exhibit exhibit-${project}`}>
       <fieldset className="exhibit-controls">
         <legend className="sr-only">{es ? "Explorar el caso" : "Explore the case"}</legend>
-        <input className="exhibit-radio mode-first" type="radio" id={`${id}-first`} name={id} defaultChecked={project === "iparkings"} />
-        <label htmlFor={`${id}-first`}>{project === "medshift" ? (es ? "Investigación" : "Research") : (es ? "Antes" : "Before")}</label>
+        <input className="exhibit-radio mode-first" type="radio" id={`${id}-first`} name={id} defaultChecked={project !== "medshift"} />
+        <label htmlFor={`${id}-first`}>{project === "medshift" ? (es ? "Investigación" : "Research") : project === "weedly" ? (es ? "Web pública" : "Public website") : (es ? "Antes" : "Before")}</label>
         <input className="exhibit-radio mode-second" type="radio" id={`${id}-second`} name={id} defaultChecked={project === "medshift"} />
-        <label htmlFor={`${id}-second`}>{project === "medshift" ? (es ? "Producto" : "Product") : (es ? "Después" : "After")}</label>
+        <label htmlFor={`${id}-second`}>{project === "medshift" ? (es ? "Producto" : "Product") : project === "weedly" ? (es ? "Asociarse" : "Membership") : (es ? "Después" : "After")}</label>
       </fieldset>
       {project === "medshift" ? (
         <>
@@ -29,6 +29,16 @@ export default function CaseVisual({ project, locale, scope }: { project: "medsh
             <Image src="/images/medshift-calendar.webp" alt={es ? "Calendario de MedShift. Datos ficticios." : "MedShift calendar. Fictional data."} width={780} height={1688} sizes="(max-width: 767px) 42vw, 260px" className="exhibit-phone phone-calendar" />
           </div>
           <figcaption><span className="first-caption">{es ? "Encuesta propia a 50 médicos, mayo y junio de 2026." : "My survey of 50 doctors, May and June 2026."}</span><span className="second-caption">{es ? "Pantallas reales de MedShift. Datos ficticios." : "Real MedShift screens. Fictional data."}</span></figcaption>
+        </>
+      ) : project === "weedly" ? (
+        <>
+          <div className="exhibit-scene public-site-scene first-scene">
+            <Image src="/images/weedly-public-web.jpg" alt={es ? "Portada pública de Weedly: Menos vueltas. Más club." : "Weedly public homepage: Menos vueltas. Más club."} width={1280} height={720} sizes="(max-width: 767px) 90vw, 65vw" />
+          </div>
+          <div className="exhibit-scene public-site-scene second-scene">
+            <Image src="/images/weedly-public-membership.jpg" alt={es ? "Página pública de Weedly para asociarse a un club: Tu próxima comunidad." : "Weedly public club membership page: Tu próxima comunidad."} width={1280} height={720} sizes="(max-width: 767px) 90vw, 65vw" />
+          </div>
+          <figcaption><span className="first-caption">{es ? "Captura de la web pública de Weedly." : "Screenshot of Weedly’s public website."}</span><span className="second-caption">{es ? "Captura de la página pública para asociarse a un club." : "Screenshot of the public club membership page."}</span></figcaption>
         </>
       ) : (
         <>

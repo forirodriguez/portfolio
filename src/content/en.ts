@@ -32,7 +32,7 @@ export const en: Content = {
     contactBig: "Get in touch",
     contactIntro: "I'm seeking a Product Owner role working closely with users and engineering teams. If my background fits your team, let's talk.",
     selectedWork: "Selected work",
-    selectedIntro: "Two cases: finding what to build and improving what's already in use.",
+    selectedIntro: "Finding what to build, improving what’s in use, and connecting product with business.",
     moreWork: "More experience",
     aboutTitle: "Product, business and technical judgment.",
     aboutIntro: "My background is in Business Administration, finance and operations, working with teams in the United States and India. Today I use that experience to research problems, define scope and build products. I work in English and Spanish.",
@@ -256,8 +256,13 @@ export const en: Content = {
         "Management platform for cannabis clubs in Uruguay.",
       fullDescription:
         "Weedly is a management platform for Uruguayan cannabis clubs, a sector with very specific operational and legal requirements. I had a cross-functional role: I owned the full-stack architecture and the business development at the same time, which in a product this regulated is what defines what can be built at all.",
-      imageSrc: "/images/weedly.jpg",
-      imageCaption: "Weedly visual presentation.",
+      imageSrc: "/images/weedly-public-web.jpg",
+      imageCaption: "Screenshot of Weedly’s public website.",
+      featured: {
+        value: "MVP",
+        label: "Product and business development",
+        detail: "Club discovery, roadmap definition and full-stack architecture.",
+      },
       technologies: [
         "Next.js",
         "TypeScript",
