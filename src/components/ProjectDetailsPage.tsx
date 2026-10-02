@@ -4,6 +4,7 @@ import { Github, ExternalLink, ArrowLeft } from "lucide-react";
 import Header from "./Header";
 import ContactFooter from "./ContactFooter";
 import ProjectsNav from "./ProjectsDetailsPageDropDown";
+import CaseVisual from "./CaseVisual";
 import { getContent, href, type Locale, type Project } from "@/content";
 
 export default function ProjectDetailsPage({ project, locale }: { project: Project; locale: Locale }) {
@@ -20,20 +21,8 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
           {project.liveLink && <Link className="button-dark" href={project.liveLink} target="_blank" rel="noopener noreferrer">{t.nav.liveSite}<ExternalLink size={18} aria-hidden="true" /></Link>}
           {project.githubLink && <Link className="button-outline" href={project.githubLink} target="_blank" rel="noopener noreferrer">{t.nav.repo}<Github size={18} aria-hidden="true" /></Link>}
         </div>
-        {project.id === "medshift" && (
-          <figure className="case-visual">
-            <div className="project-media medshift-stage">
-              <Image src="/images/medshift-home.webp" alt={locale === "es" ? "Inicio de MedShift. Datos ficticios." : "MedShift home. Fictional data."} width={780} height={1688} sizes="(max-width: 767px) 42vw, 360px" className="medshift-screen medshift-home" />
-              <Image src="/images/medshift-calendar.webp" alt={locale === "es" ? "Calendario de MedShift. Datos ficticios." : "MedShift calendar. Fictional data."} width={780} height={1688} sizes="(max-width: 767px) 36vw, 320px" className="medshift-screen medshift-calendar" />
-            </div>
-            <figcaption>{locale === "es" ? "Pantallas reales de MedShift. Datos ficticios." : "Real MedShift screens. Fictional data."}</figcaption>
-          </figure>
-        )}
-        {project.id === "iparkings" && (
-          <figure className="case-visual">
-            <Image src="/images/parking-context.webp" alt={locale === "es" ? "Imagen conceptual de un estacionamiento, generada con IA" : "AI-generated conceptual parking image"} width={1000} height={667} sizes="(max-width: 767px) 100vw, 1200px" className="case-photo" />
-            <figcaption>{locale === "es" ? "Imagen ilustrativa. Interfaces confidenciales." : "Illustrative image. Interfaces are confidential."}</figcaption>
-          </figure>
+        {(project.id === "medshift" || project.id === "iparkings") && (
+          <div className="case-visual"><CaseVisual project={project.id} locale={locale} scope="detail" /></div>
         )}
         {project.featured && (
           <div className="project-proof case-result mb-10">

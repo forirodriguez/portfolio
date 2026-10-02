@@ -12,12 +12,7 @@ const geistMono = localFont({
   src: "./fonts/GeistMonoVF.woff",
   variable: "--font-geist-mono",
   weight: "100 900",
-});
-const display = localFont({
-  src: "./fonts/BarlowCondensed-SemiBold.woff2",
-  variable: "--font-display",
-  weight: "600",
-  display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -45,7 +40,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${display.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
       >
         {children}
       </body>

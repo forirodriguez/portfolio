@@ -10,7 +10,11 @@ class Page(HTMLParser):
     def __init__(self, html):
         super().__init__()
         self.links, self.ids, self.h1s = [], set(), 0
+        self.radios, self.labels = {}, set()
         self.feed(html)
+        for name, options in self.radios.items():
+            assert name and sum(checked for _, checked in options) == 1, f'Invalid initial radio selection: {name}'
+            assert all(id in self.labels for id, _ in options), f'Unlabelled radio control: {name}'
 
     def handle_starttag(self, tag, attrs):
         attrs = dict(attrs)
@@ -23,6 +27,10 @@ class Page(HTMLParser):
             self.h1s += 1
         if tag == 'img':
             assert 'alt' in attrs, 'Image without alternative text'
+        if tag == 'input' and attrs.get('type') == 'radio':
+            self.radios.setdefault(attrs.get('name', ''), []).append((attrs.get('id'), 'checked' in attrs))
+        if tag == 'label':
+            self.labels.add(attrs.get('for'))
 
 
 def check(base):

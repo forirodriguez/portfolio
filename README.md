@@ -10,19 +10,20 @@ Portfolio personal, bilingüe (español / inglés), orientado a oportunidades de
 
 Tres cosas que definen cómo está armado:
 
-La dirección visual combina Barlow Condensed para titulares con Geist para lectura
-y Geist Mono para datos. La paleta original se mantiene en ambos temas. Las imágenes
-de MedShift son pantallas públicas reales con datos ficticios; la escultura de papel
-de la portada y el estacionamiento son ilustraciones generadas con IA.
-Las transiciones usan CSS nativo, respetan movimiento reducido y conservan el
-contenido visible cuando el navegador no admite animaciones de scroll.
+La portada funciona como una firma tipográfica, con un índice que lleva a dos
+capítulos completos. MedShift alterna entre investigación y pantallas reales;
+iParkings compara el número de pasos del flujo original y el rediseñado. Los
+visuales usan evidencia existente: no hay imágenes generadas ni interfaces
+confidenciales recreadas. La paleta original se conserva en ambos temas.
+Geist variable y Geist Mono se sirven localmente. Las comparaciones usan radios
+nativos y el archivo de proyectos usa `details`: funcionan sin JavaScript.
 
 Referencias de composición y ritmo: [The Robot and Me](https://therobotand.me/),
 [Pil](https://pilcommunication.com/), [Coutumes](https://coutumes.com/fr),
 [Gertix](https://gertix.studio/) y [Maison Auge](https://maisonauge.com/).
-Barlow Condensed se sirve localmente con su licencia OFL en `src/app/fonts/`.
+El proceso y sus decisiones están en [DESIGN.md](./DESIGN.md).
 
-**1. Todo el contenido vive en datos, no en JSX.**
+**1. El contenido profesional vive en datos.**
 `src/content/es.ts` y `src/content/en.ts` exportan el mismo tipo (`src/content/types.ts`).
 Las páginas son componentes finos que reciben un `locale` y leen de ahí. Agregar un
 proyecto o corregir una fecha es editar un objeto, no tocar markup — y el compilador
@@ -34,9 +35,9 @@ Las rutas de proyecto (`/[id]` y `/es/[id]`) usan `generateStaticParams` con
 Un id que no existe da 404, no error.
 
 **3. El contenido no depende de JavaScript.**
-El titular es fijo y los proyectos son enlaces visibles en el HTML, sin pestañas
-ni acordeones. El menú, el cambio de idioma y los casos se pueden recorrer sin
-JavaScript.
+La portada, los enlaces de los casos, las comparaciones visuales y el archivo
+expandible se sirven en HTML. Se pueden recorrer con teclado y sin JavaScript;
+el cambio de tema es una mejora que requiere JavaScript.
 
 ---
 
@@ -112,7 +113,7 @@ caseStudy: { heading, body?, bullets? }[]         // secciones de texto largo
 ```
 
 `featured: { value, label, detail }` destaca un caso en la portada. Los demás
-trabajos se muestran como una lista visible; el portfolio propio conserva su
+trabajos se muestran en un archivo expandible; el portfolio propio conserva su
 ruta pero no ocupa una tarjeta en la portada. `imageCaption` describe la imagen
 sin asumir que es una captura del producto.
 
