@@ -13,6 +13,12 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const display = localFont({
+  src: "./fonts/BarlowCondensed-SemiBold.woff2",
+  variable: "--font-display",
+  weight: "600",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -39,7 +45,7 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${display.variable} font-sans antialiased`}
       >
         {children}
       </body>

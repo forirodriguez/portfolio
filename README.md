@@ -10,6 +10,18 @@ Portfolio personal, bilingüe (español / inglés), orientado a oportunidades de
 
 Tres cosas que definen cómo está armado:
 
+La dirección visual combina Barlow Condensed para titulares con Geist para lectura
+y Geist Mono para datos. La paleta original se mantiene en ambos temas. Las imágenes
+de MedShift son pantallas públicas reales con datos ficticios; la escultura de papel
+de la portada y el estacionamiento son ilustraciones generadas con IA.
+Las transiciones usan CSS nativo, respetan movimiento reducido y conservan el
+contenido visible cuando el navegador no admite animaciones de scroll.
+
+Referencias de composición y ritmo: [The Robot and Me](https://therobotand.me/),
+[Pil](https://pilcommunication.com/), [Coutumes](https://coutumes.com/fr),
+[Gertix](https://gertix.studio/) y [Maison Auge](https://maisonauge.com/).
+Barlow Condensed se sirve localmente con su licencia OFL en `src/app/fonts/`.
+
 **1. Todo el contenido vive en datos, no en JSX.**
 `src/content/es.ts` y `src/content/en.ts` exportan el mismo tipo (`src/content/types.ts`).
 Las páginas son componentes finos que reciben un `locale` y leen de ahí. Agregar un

@@ -13,9 +13,9 @@ export default function AboutView({ locale }: { locale: Locale }) {
   return (
     <div lang={t.htmlLang} className="site-shell">
       <Header locale={locale} altHref={locale === "es" ? "/about" : "/es/sobre-mi"} />
-      <main id="main" tabIndex={-1} className="max-w-4xl mx-auto pt-10 sm:pt-14">
+      <main id="main" tabIndex={-1} className="interior-main about-page">
 
-        <h1 className="text-4xl sm:text-5xl font-bold text-teal mb-8">
+        <h1 className="page-title mb-10">
           {t.about.title}
         </h1>
 

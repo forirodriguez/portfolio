@@ -11,23 +11,38 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
   return (
     <div lang={t.htmlLang} className="site-shell">
       <Header locale={locale} altHref={href(locale === "es" ? "en" : "es", `/${project.id}`)} />
-      <main id="main" tabIndex={-1} className="max-w-4xl mx-auto pt-8 sm:pt-12">
+      <main id="main" tabIndex={-1} className="interior-main project-page">
         <Link href={`${href(locale)}#work`} className="inline-flex items-center gap-2 min-h-11 text-sm text-teal mb-6 hover:underline"><ArrowLeft size={18} aria-hidden="true" />{t.home.selectedWork}</Link>
-        <p className="eyebrow mb-3">{project.role} · {project.period}</p>
-        <h1 className="text-4xl sm:text-6xl font-semibold tracking-tight">{project.title}</h1>
-        <p className="mt-5 text-xl sm:text-2xl leading-relaxed max-w-3xl">{project.shortDescription}</p>
+        <p className="project-role mb-4">{project.role} · {project.period}</p>
+        <h1 className="page-title">{project.title}</h1>
+        <p className="project-deck">{project.shortDescription}</p>
         <div className="flex flex-wrap gap-3 mt-6 mb-10">
           {project.liveLink && <Link className="button-dark" href={project.liveLink} target="_blank" rel="noopener noreferrer">{t.nav.liveSite}<ExternalLink size={18} aria-hidden="true" /></Link>}
           {project.githubLink && <Link className="button-outline" href={project.githubLink} target="_blank" rel="noopener noreferrer">{t.nav.repo}<Github size={18} aria-hidden="true" /></Link>}
         </div>
+        {project.id === "medshift" && (
+          <figure className="case-visual">
+            <div className="project-media medshift-stage">
+              <Image src="/images/medshift-home.webp" alt={locale === "es" ? "Inicio de MedShift. Datos ficticios." : "MedShift home. Fictional data."} width={780} height={1688} sizes="(max-width: 767px) 42vw, 360px" className="medshift-screen medshift-home" />
+              <Image src="/images/medshift-calendar.webp" alt={locale === "es" ? "Calendario de MedShift. Datos ficticios." : "MedShift calendar. Fictional data."} width={780} height={1688} sizes="(max-width: 767px) 36vw, 320px" className="medshift-screen medshift-calendar" />
+            </div>
+            <figcaption>{locale === "es" ? "Pantallas reales de MedShift. Datos ficticios." : "Real MedShift screens. Fictional data."}</figcaption>
+          </figure>
+        )}
+        {project.id === "iparkings" && (
+          <figure className="case-visual">
+            <Image src="/images/parking-context.webp" alt={locale === "es" ? "Imagen conceptual de un estacionamiento, generada con IA" : "AI-generated conceptual parking image"} width={1000} height={667} sizes="(max-width: 767px) 100vw, 1200px" className="case-photo" />
+            <figcaption>{locale === "es" ? "Imagen ilustrativa. Interfaces confidenciales." : "Illustrative image. Interfaces are confidential."}</figcaption>
+          </figure>
+        )}
         {project.featured && (
-          <div className="project-proof rounded-2xl mb-10">
+          <div className="project-proof case-result mb-10">
             <p className="text-sm text-teal">{project.featured.label}</p>
             <p className="proof-value">{project.featured.value}</p>
             <p className="text-charcoal/80 leading-relaxed">{project.featured.detail}</p>
           </div>
         )}
-        <div className="grid md:grid-cols-3 gap-8 border-y border-teal/20 py-8 mb-10">
+        <div className="case-overview grid md:grid-cols-3 gap-8 border-y border-teal/20 py-8 mb-10">
           <div className="md:col-span-2"><h2 className="text-xl font-semibold mb-3">{t.nav.description}</h2><p className="leading-relaxed text-charcoal/80">{project.fullDescription}</p></div>
           <div><h2 className="text-xl font-semibold mb-3">{t.nav.stack}</h2><ul className="flex flex-wrap gap-2">{project.technologies.map(tech => <li key={tech} className="border border-teal/20 text-teal rounded-full px-3 py-1 text-sm">{tech}</li>)}</ul></div>
         </div>
@@ -38,7 +53,7 @@ export default function ProjectDetailsPage({ project, locale }: { project: Proje
         )}
         <div className="case-study">
           {project.caseStudy?.map(section => (
-            <section key={section.heading} className="mb-10">
+            <section key={section.heading} className="case-section">
               <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight mb-4">{section.heading}</h2>
               {section.body && <p className="mb-5">{section.body}</p>}
               {section.bullets && <ul className="list-disc pl-5 space-y-4 marker:text-teal">{section.bullets.map(bullet => <li key={bullet}>{bullet}</li>)}</ul>}

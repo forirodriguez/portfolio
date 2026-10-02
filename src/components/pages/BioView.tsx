@@ -8,9 +8,9 @@ export default function BioView({ locale }: { locale: Locale }) {
   return (
     <div lang={t.htmlLang} className="site-shell">
       <Header locale={locale} altHref={locale === "es" ? "/bio" : "/es/bio"} />
-      <main id="main" tabIndex={-1} className="max-w-3xl mx-auto pt-10 sm:pt-14">
+      <main id="main" tabIndex={-1} className="interior-main bio-page">
 
-        <h1 className="text-4xl sm:text-5xl font-bold text-teal mb-10">
+        <h1 className="page-title mb-10">
           {t.bio.title}
         </h1>
 
