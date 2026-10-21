@@ -18,7 +18,10 @@ export default function LanguageSwitch({ href, label, hrefLang }: { href: string
 
   return (
     <li>
-      <Link href={href} hrefLang={hrefLang} lang={hrefLang} onClick={() => { document.documentElement.dataset.retype = ""; }} aria-label={hrefLang === "es" ? "Ver en español" : "Read in English"} className="nav-link font-semibold border border-teal/20 rounded-full">
+      {/* El nombre accesible arranca con el texto visible ("ES", "EN"): si no,
+          axe lo marca como label-content-name-mismatch y quien dicta por voz
+          no puede pedir el link por lo que ve. */}
+      <Link href={href} hrefLang={hrefLang} lang={hrefLang} onClick={() => { document.documentElement.dataset.retype = ""; }} aria-label={`${label}, ${hrefLang === "es" ? "ver en español" : "read in English"}`} className="nav-link nav-pill font-semibold border border-teal/20 rounded-full">
         {label}
       </Link>
     </li>

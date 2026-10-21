@@ -12,7 +12,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
 
   return (
     <div lang={t.htmlLang} className="site-shell">
-      <Header locale={locale} altHref={locale === "es" ? "/about" : "/es/sobre-mi"} />
+      <Header locale={locale} altHref={locale === "es" ? "/about" : "/es/sobre-mi"} current="about" />
       <main id="main" tabIndex={-1} className="interior-main about-page">
 
         <h1 className="page-title mb-10">
@@ -32,7 +32,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
                 href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline underline-offset-4"
+                className="link-sweep"
               >
                 GitHub
               </Link>
@@ -40,7 +40,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
                 href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline underline-offset-4"
+                className="link-sweep"
               >
                 LinkedIn
               </Link>
@@ -73,7 +73,7 @@ export default function AboutView({ locale }: { locale: Locale }) {
               <p>{job.description}</p>
               {job.projectId && (
                 <Link
-                  className="text-teal inline-flex items-center mt-4 hover:underline underline-offset-4"
+                  className="link-sweep text-teal inline-flex items-center mt-4"
                   href={href(locale, `/${job.projectId}`)}
                 >
                   {t.nav.viewProject}

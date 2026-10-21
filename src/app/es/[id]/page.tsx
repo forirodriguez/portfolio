@@ -20,6 +20,12 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
     return { title: "Alfonso Rodriguez", robots: { index: false } };
   }
 
+  // Los proyectos sin imagen propia caen en la tarjeta generada del sitio: sin
+  // esto comparten sin preview.
+  const ogImages = project.imageSrc
+    ? [{ url: project.imageSrc, alt: project.title }]
+    : [{ url: "/opengraph-image", width: 1200, height: 630, alt: project.title }];
+
   return {
     title: `${project.title} | Alfonso Rodriguez`,
     description: project.shortDescription,
@@ -42,15 +48,13 @@ export function generateMetadata({ params }: ProjectPageProps): Metadata {
       siteName: "Alfonso Rodriguez",
       type: "article",
       locale: "es_UY",
-      images: project.imageSrc
-        ? [{ url: project.imageSrc, alt: project.title }]
-        : undefined,
+      images: ogImages,
     },
     twitter: {
       card: "summary_large_image",
       title: `${project.title} | Alfonso Rodriguez`,
       description: project.shortDescription,
-      images: project.imageSrc ? [project.imageSrc] : undefined,
+      images: ogImages.map((image) => image.url),
     },
   };
 }

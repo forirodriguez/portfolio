@@ -5,7 +5,9 @@ import ThemeToggle from "./ThemeToggle";
 import { getContent, href, type Locale } from "@/content";
 import { MAILTO_URL } from "@/lib/links";
 
-export default function Header({ locale, altHref }: { locale: Locale; altHref: string }) {
+/** `current` marca en que parte del sitio esta el visitante. Sin esto la unica
+ *  diferencia entre un link del nav y el de la pagina abierta es el hover. */
+export default function Header({ locale, altHref, current }: { locale: Locale; altHref: string; current?: "work" | "about" }) {
   const t = getContent(locale);
 
   return (
@@ -17,8 +19,8 @@ export default function Header({ locale, altHref }: { locale: Locale; altHref: s
         </Link>
         <nav aria-label={t.nav.home}>
           <ul className="flex flex-wrap items-center gap-1 sm:gap-3 text-sm">
-            <li><Link className="nav-link" href={`${href(locale)}#work`}>{t.nav.projects}</Link></li>
-            <li><Link className="nav-link" href={href(locale, locale === "es" ? "/sobre-mi" : "/about")}>{t.nav.about}</Link></li>
+            <li><Link className="nav-link" href={`${href(locale)}#work`} aria-current={current === "work" ? "true" : undefined}>{t.nav.projects}</Link></li>
+            <li><Link className="nav-link" href={href(locale, locale === "es" ? "/sobre-mi" : "/about")} aria-current={current === "about" ? "page" : undefined}>{t.nav.about}</Link></li>
             <li>
               <Link className="nav-link" href={MAILTO_URL} aria-label={t.nav.talk} title={t.nav.talk}>
                 <span className="hidden sm:inline">{t.nav.talk}</span><ArrowUpRight size={20} aria-hidden="true" />

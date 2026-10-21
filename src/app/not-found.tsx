@@ -1,28 +1,34 @@
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
+import Header from "@/components/Header";
+import ContactFooter from "@/components/ContactFooter";
 import { getContent } from "@/content";
 
+export const metadata = {
+  title: "404 | Alfonso Rodríguez",
+  description: "This page does not exist.",
+  robots: { index: false, follow: true },
+};
+
+/** Next sirve un unico not-found para los dos idiomas y no sabe en build cual
+ *  pedia el visitante, asi que la pagina habla en ingles (el default, en la
+ *  raiz) y deja el cambio de idioma en el header como el resto del sitio. */
 export default function NotFound() {
-  const es = getContent("es").notFound;
-  const en = getContent("en").notFound;
+  const t = getContent("en");
 
   return (
-    <div className="bg-cream min-h-[100dvh] flex items-center justify-center p-4">
-      <div className="bg-cream text-teal p-8 rounded-2xl max-w-md w-full text-center">
-        <h1 className="text-6xl font-bold mb-4">404</h1>
-        <h2 className="text-2xl font-semibold mb-2">{en.title}</h2>
-        <p className="mb-6">{en.text}</p>
-        <p lang="es" className="mb-8 text-sm text-charcoal/70">
-          {es.title}. {es.text}
-        </p>
-        <Link
-          href="/"
-          className="button-dark"
-        >
-          <ArrowLeft className="mr-2" size={20} />
-          {en.cta}
+    <div className="site-shell">
+      <Header locale="en" altHref="/es" />
+      <main id="main" tabIndex={-1} className="interior-main not-found-page">
+        <p className="eyebrow">{t.notFound.title}</p>
+        <h1 className="page-title">404</h1>
+        <p className="project-deck">{t.notFound.text}</p>
+        <Link href="/" className="button-dark not-found-cta">
+          <ArrowLeft size={20} aria-hidden="true" />
+          {t.notFound.cta}
         </Link>
-      </div>
+      </main>
+      <ContactFooter locale="en" />
     </div>
   );
 }

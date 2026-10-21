@@ -50,7 +50,7 @@ export default function ThemeToggle({ locale }: { locale: Locale }) {
 
   return (
     <li>
-      <button type="button" onClick={toggle} aria-label={label} title={label} className="nav-link border border-teal/20 rounded-full">
+      <button type="button" onClick={toggle} aria-label={label} title={label} className="nav-link nav-pill border border-teal/20 rounded-full">
         <Moon className="icon-moon" size={18} aria-hidden="true" />
         <Sun className="icon-sun" size={18} aria-hidden="true" />
       </button>

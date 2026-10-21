@@ -8,7 +8,7 @@ export default function DownloadCV({ label, locale }: { label: string; locale: L
       href={CV_PATH[locale]}
       target="_blank"
       rel="noopener noreferrer"
-      className="inline-flex items-center min-h-11 underline underline-offset-4"
+      className="cv-link inline-flex items-center min-h-11 underline underline-offset-4"
     >
       <FileDown aria-hidden="true" size={20} className="mr-2" />
       {label}
